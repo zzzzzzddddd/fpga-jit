@@ -1,0 +1,41 @@
+standard
+***Report Model: fat32_probe_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        22
+  #input                    3
+  #output                  19
+  #inout                    0
+
+Gate Statistics
+#Basic gates             1764
+  #and                    232
+  #nand                     0
+  #or                     204
+  #nor                      0
+  #xor                      0
+  #xnor                     0
+  #buf                      0
+  #not                    123
+  #bufif1                   0
+  #MX21                   349
+  #FADD                     0
+  #DFF                    856
+  #LATCH                    0
+#MACRO_ADD                 44
+#MACRO_EQ                  64
+#MACRO_MULT                 1
+#MACRO_MUX                703
+
+Report Hierarchy Area:
++------------------------------------------------------------------------------+
+|Instance                      |Module                 |gates  |seq    |macros |
++------------------------------------------------------------------------------+
+|top                           |fat32_probe_top        |908    |856    |109    |
+|  sd_card_top_m0              |sd_card_top            |408    |181    |13     |
+|    sd_card_cmd_m0            |sd_card_cmd            |276    |48     |8      |
+|    sd_card_sec_read_write_m0 |sd_card_sec_read_write |120    |89     |0      |
+|    spi_master_m0             |spi_master             |12     |44     |5      |
+|  u_fat32                     |fat32_reader           |412    |434    |59     |
+|  u_seg_scan                  |seg_scan               |12     |33     |11     |
++------------------------------------------------------------------------------+

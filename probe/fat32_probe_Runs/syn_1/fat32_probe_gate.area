@@ -1,0 +1,44 @@
+standard
+***Report Model: fat32_probe_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        22   out of    188   11.70%
+  #input                    3
+  #output                  19
+  #inout                    0
+
+LUT Statistics
+#Total_luts              1093
+  #lut4                   969
+  #lut5                   124
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                     1519   out of  19600    7.75%
+#reg                      840   out of  19600    4.29%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        2   out of     29    6.90%
+#pad                       22   out of    188   11.70%
+  #ireg                     0
+  #oreg                    18
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+Report Hierarchy Area:
++---------------------------------------------------------------------------------------------------+
+|Instance                      |Module                 |lut     |ripple  |seq     |bram    |dsp     |
++---------------------------------------------------------------------------------------------------+
+|top                           |fat32_probe_top        |1306    |213     |858     |0       |2       |
+|  sd_card_top_m0              |sd_card_top            |260     |32      |180     |0       |0       |
+|    sd_card_cmd_m0            |sd_card_cmd            |132     |23      |47      |0       |0       |
+|    sd_card_sec_read_write_m0 |sd_card_sec_read_write |62      |0       |89      |0       |0       |
+|    spi_master_m0             |spi_master             |66      |9       |44      |0       |0       |
+|  u_fat32                     |fat32_reader           |594     |95      |434     |0       |2       |
+|  u_seg_scan                  |seg_scan               |191     |17      |18      |0       |0       |
++---------------------------------------------------------------------------------------------------+

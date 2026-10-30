@@ -1,0 +1,40 @@
+standard
+***Report Model: spi_probe_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        22   out of    188   11.70%
+  #input                    3
+  #output                  19
+  #inout                    0
+
+LUT Statistics
+#Total_luts               430
+  #lut4                   340
+  #lut5                    90
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                      700   out of  19600    3.57%
+#reg                      247   out of  19600    1.26%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                       22   out of    188   11.70%
+  #ireg                     0
+  #oreg                    16
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+Report Hierarchy Area:
++-------------------------------------------------------------------------+
+|Instance     |Module        |lut     |ripple  |seq     |bram    |dsp     |
++-------------------------------------------------------------------------+
+|top          |spi_probe_top |565     |135     |263     |0       |0       |
+|  u_seg_scan |seg_scan      |149     |13      |18      |0       |0       |
+|  u_spi      |spi_master    |99      |5       |44      |0       |0       |
++-------------------------------------------------------------------------+

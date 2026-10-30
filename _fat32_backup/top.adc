@@ -1,0 +1,86 @@
+# ============================================================
+# 【HDL 引脚（与官方 31_hdmi_tx_display_A 完全一致）】
+#   TMDS 走 HDMI A 口：CLK_P=K1  D0_P=F5 D1_P=E3 D2_P=B3
+#   （依据 2_DEMO/DEMO_TD_5.6.2/31_hdmi_tx_display_A/.../hdmi.adc
+#     以及《HX4S20开发板手册》P8 "HDMI接口A" 引脚表）
+#
+# DDC 保持原工程的 P2/R2（= HDMI B 口的 I2C），【不要改回 P1/R1】：
+#   实测 P1/R1(A口DDC) 会导致 HDMI 无输出/黑屏，P2/R2 反而正常。
+#   原因：核 hdmi_1_4b_transmitter_core_wrapper 会用读到的 EDID 去
+#   选择输出模式（核内含 video_tpg_1024768/1080p/1280800/800600/
+#   16801050p 等多套 TPG）。DDC 挂在 B 口时读不到 EDID，核保持默认
+#   640x480，正好与本工程 AXIS 送出的 640x480 匹配 -> 正常显示；
+#   一旦 DDC 能读到显示器 EDID，核会切到显示器偏好模式（如 1080p），
+#   与 640x480 的 AXIS 数据不匹配 -> 黑屏。
+#   （A口 DDC 引脚确实是 P1/R1，但这里必须"故意"不接。）
+# ============================================================
+set_pin_assignment	{ HDMI_CLK_P }	{ LOCATION = K1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ HDMI_D0_P }	{ LOCATION = F5; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ HDMI_D1_P }	{ LOCATION = E3; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ HDMI_D2_P }	{ LOCATION = B3; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ HDMI_DDC_SCL }	{ LOCATION = P2; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ HDMI_DDC_SDA }	{ LOCATION = R2; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ clk }	{ LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+# 按键：KEY_1=A2 KEY_2=B2 KEY_3=B1 KEY_4=C1（原理图 2_FPGA：KEY_1..4 -> A2/B2/B1/C1）
+# 赛题要求 K2/K4 分别控制手动翻图与自动轮播，故 key1=B2(KEY_2) key2=C1(KEY_4)。
+# 原工程 key2=B1 是 KEY_3，按板上 K4 不会有反应。
+# key3=B1(KEY_3)：HUD 用，短按切换工况页，长按循环调亮度。
+set_pin_assignment	{ key1 }	{ LOCATION = B2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ key2 }	{ LOCATION = C1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ key3 }	{ LOCATION = B1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ rst_n }	{ LOCATION = A2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ sd_dclk }	{ LOCATION = A14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ sd_miso }	{ LOCATION = B14; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment	{ sd_mosi }	{ LOCATION = A13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ sd_ncs }	{ LOCATION = A12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[0] }	{ LOCATION = C15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[1] }	{ LOCATION = C16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[2] }	{ LOCATION = B6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[3] }	{ LOCATION = A5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[4] }	{ LOCATION = B5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[5] }	{ LOCATION = A8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[6] }	{ LOCATION = A7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[7] }	{ LOCATION = A6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# 数码管位选 SEL0..SEL7（原理图 2_FPGA：SEL0..7 -> F16/E16/E12/E10/C13/F10/E11/D11）
+#
+# ★ 这 8 行必须是完整的 0..7 一套，不能"在原来 6 行后面追加两行" ★
+#   原来只映射了 SEL2..SEL7（seg_sel[0..5] = E12,E10,C13,F10,E11,D11），
+#   直接追加 [6]/[7] 会得到顺序 SEL2,SEL3,SEL4,SEL5,SEL6,SEL7,SEL0,SEL1 ——
+#   数码管上就是错乱的。所以这里把 [0]/[1] 改成 SEL0(F16)/SEL1(E16)，
+#   全部显式重写一遍。
+#   改完先让数码管显示 12345678 确认物理顺序；如果左右颠倒，
+#   就把这 8 行的 LOCATION 整体倒过来（这是全设计唯一一处
+#   "逻辑位号 -> 物理数码管"的映射）。
+set_pin_assignment	{ seg_sel[0] }	{ LOCATION = F16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[1] }	{ LOCATION = E16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[2] }	{ LOCATION = E12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[3] }	{ LOCATION = E10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[4] }	{ LOCATION = C13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[5] }	{ LOCATION = F10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[6] }	{ LOCATION = E11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[7] }	{ LOCATION = D11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# 拨动开关 SW1..SW4：网名 SWKEY01..SWKEY04 -> C8 / C7 / C6 / C5
+# （原理图 2_FPGA.pdf，并与 8_key_sw / 6_cnt10 例程交叉核对。
+#   注意别和 KEY01..04 = A2/B2/B1/C1 那四个按键搞混。）
+# 开关合上一般接地，所以 PULLUP 保证断开时读到确定的高电平。
+set_pin_assignment	{ sw[0] }	{ LOCATION = C8; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ sw[1] }	{ LOCATION = C7; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ sw[2] }	{ LOCATION = C6; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ sw[3] }	{ LOCATION = C5; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# 蜂鸣器：网名 BUZZER -> H11（厂商 13_music 例程里 spk 就是绑到这个脚，
+# 用方波直接驱动，不是有源蜂鸣器的单线协议）。
+set_pin_assignment	{ buzzer }	{ LOCATION = H11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[0] }	{ LOCATION = F6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[10] }	{ LOCATION = L8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[11] }	{ LOCATION = E13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[1] }	{ LOCATION = E6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[2] }	{ LOCATION = D6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[3] }	{ LOCATION = D5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[4] }	{ LOCATION = T5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[5] }	{ LOCATION = P5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[6] }	{ LOCATION = N5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[7] }	{ LOCATION = N6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[8] }	{ LOCATION = R5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_data[9] }	{ LOCATION = L7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_out_hs }	{ LOCATION = E7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ vga_out_vs }	{ LOCATION = F7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }

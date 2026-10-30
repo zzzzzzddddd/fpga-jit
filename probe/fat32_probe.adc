@@ -1,0 +1,72 @@
+# ============================================================
+# fat32_probe.adc — 探针工程的引脚约束
+# ============================================================
+# ★ 这份文件被两个探针顶层共用 ★
+#     fat32_probe_top.v  （FAT32 按文件名读图验证）
+#     spi_probe_top.v    （SD 卡 SPI 初始化诊断）
+#   两者用的引脚完全一样（时钟/复位/TF 卡四线/数码管），所以不重复一份。
+#
+# 引脚全部抄自主工程的 top.adc（那份是在这块板上验证过的）。
+# 只保留本工程用得到的：时钟、复位按键、TF 卡四线、8 位数码管。
+# HDMI / SDRAM / 按键 / 拨动开关 / 蜂鸣器 都没用到，不写。
+#
+# TODO[按开发板原理图核对]：如果你换了一块板子或者改了接线，
+# 以原理图为准重新核对这几组引脚。
+# ============================================================
+
+# ---- 时钟：50MHz 晶振 ----
+set_pin_assignment	{ clk }	{ LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+
+# ---- 复位按键（A2 = 物理 KEY_1）----
+# 低有效，按下接地，所以 PULLUP 保证松手时读到确定的高电平。
+set_pin_assignment	{ rst_n }	{ LOCATION = A2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+# ---- TF 卡 SPI 四线 ----
+# 引脚已按 HX4S20C V1.0 原理图核对（板载 Micro SD 座 U51）：
+#     FPGA_SD_CLK = A14  -> sd_dclk (SPI 的 SCLK)
+#     FPGA_SD_CMD = A13  -> sd_mosi (SPI 的 DI)
+#     FPGA_SD_D0  = B14  -> sd_miso (SPI 的 DO)
+#     FPGA_SD_D3  = A12  -> sd_ncs  (SPI 的片选，低有效)
+#
+#   SPI 模式下 DAT1(B15)、DAT2(A11) 不使用，不要绑定。
+#
+# ★ 上拉：BANK0 已通过 R123 使能 FPGA 内部上拉，这里显式打开 ★
+#   sd_miso 是卡的输出：卡没插 / 没被选中时是高阻，没有上拉读到什么电平
+#   是不确定的，CMD0 无响应时就分不清是"卡没反应"还是"线上浮着"。
+#   sd_mosi / sd_ncs 是 FPGA 的输出：上拉保证配置完成之前（引脚还没被
+#   驱动的那段时间）线上是确定的高电平，而不是浮空乱跳 ——
+#   避免上电瞬间给卡送去半个命令。
+#
+#   sd_dclk 不开上拉：时钟线弱拉高没有意义。SPI 模式 3 要求空闲时钟为高，
+#   这是由 spi_master 的 CPOL=1 主动驱动的，不靠上拉。
+#
+#   有人担心"内部弱上拉几十 kΩ 在 12.5MHz 下边沿太慢" —— 这里不成立：
+#   传输期间 MISO 是卡在推挽驱动，上拉根本不在信号路径上；
+#   上拉只决定【空闲】电平。所以内部上拉够用。
+set_pin_assignment	{ sd_dclk }	{ LOCATION = A14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ sd_miso }	{ LOCATION = B14; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ sd_mosi }	{ LOCATION = A13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ sd_ncs }	{ LOCATION = A12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+
+# ---- 8 位数码管段选（含 DP，低有效）----
+set_pin_assignment	{ seg_data[0] }	{ LOCATION = C15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[1] }	{ LOCATION = C16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[2] }	{ LOCATION = B6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[3] }	{ LOCATION = A5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[4] }	{ LOCATION = B5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[5] }	{ LOCATION = A8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[6] }	{ LOCATION = A7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[7] }	{ LOCATION = A6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# ---- 8 位数码管位选（低有效 one-hot）----
+# ★ 这 8 行必须是完整的一套，不能只写其中几个 ★
+#   位号和物理数码管的对应关系全在这里。主工程 top.adc 里有一段长注释
+#   解释为什么当初要把 [0]/[1] 显式重写成 SEL0/SEL1。
+set_pin_assignment	{ seg_sel[0] }	{ LOCATION = F16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[1] }	{ LOCATION = E16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[2] }	{ LOCATION = E12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[3] }	{ LOCATION = E10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[4] }	{ LOCATION = C13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[5] }	{ LOCATION = F10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[6] }	{ LOCATION = E11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[7] }	{ LOCATION = D11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }

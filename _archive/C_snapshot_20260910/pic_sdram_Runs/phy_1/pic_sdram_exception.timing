@@ -1,0 +1,636 @@
+Created by          : Tang Dynasty v6.2.168116
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Thu Sep 10 20:06:17 2026
+
+Top Model           : top
+Device              : EG4S20BG256
+Speed               : NA
+STA coverage        : 99.97%
+Constraint File     : C:/Users/10821/Desktop/plan_fu/C/top.sdc;
+Confidence          : Routed
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+MCP/SMD Summary
+--------------------
+
+		Max Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+		        48            0            0           48   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+		        32            0            0           32   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+		        18           18            0            0   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 7.700
+		        18           18            0            0   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 7.700
+
+		Min Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+		        48            0            0           48   set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+		        32            0            0           32   set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+
+Status of timing exceptions
+--------------------------------------------------
+
+MCP/SMD Details
+--------------------
+
+
+Constraint     :   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+Check Type     :   Max
+--------------------------------------------------------------------------------
+Total Paths    :           48
+Dominated      :            0,          0.0%
+Ignored        :           48,        100.0%
+               :           48, by set_false_path -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+
+
+Constraint     :   set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+Check Type     :   Min
+--------------------------------------------------------------------------------
+Total Paths    :           48
+Dominated      :            0,          0.0%
+Ignored        :           48,        100.0%
+               :           48, by set_false_path -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+
+
+Constraint     :   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+Check Type     :   Max
+--------------------------------------------------------------------------------
+Total Paths    :           32
+Dominated      :            0,          0.0%
+Ignored        :           32,        100.0%
+               :           32, by set_false_path -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+
+
+Constraint     :   set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+Check Type     :   Min
+--------------------------------------------------------------------------------
+Total Paths    :           32
+Dominated      :            0,          0.0%
+Ignored        :           32,        100.0%
+               :           32, by set_false_path -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+
+
+Constraint     :   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 7.700
+Check Type     :   Max
+--------------------------------------------------------------------------------
+Total Paths    :           18
+Dominated      :           18,        100.0%
+
+
+Constraint     :   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 7.700
+Check Type     :   Max
+--------------------------------------------------------------------------------
+Total Paths    :           18
+Dominated      :           18,        100.0%
+
+
+Details on timing exceptions
+--------------------------------------------------
+
+Timing details for constraint:
+	set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+	set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     
+set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+
+Type           :     MCP
+
+Statistics:
+Max            : SWNS      0.000ns, STNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     Set Multicycle Path (Ignored)
+Constr         :     set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+               :     set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+
+Statistics:
+	Setup Check    :             48   end points,              48   paths
+	Setup Check    :             48   end points,              48   paths
+----------------------------------------------------------------------------------------------------
+
+Max Delay Paths
+----------------------------------------------------------------------------------------------------
+Begin Point         : U3/sdram_syn_38.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[2](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y026                                          pin: U3/sdram_syn_38.opad
+net (fo=1)          x020y036                                          net: addr[2],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[2]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/cnt4_reg[0]_syn_9.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[17](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x011y024z3                                        pin: U3/u2_ram/u2_wrrd/cnt4_reg[0]_syn_9.q[0]
+net (fo=33)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_24.ts
+PAD                 x000y005                                          pin: U3/sdram_syn_24.bpad
+net (fo=0)          x020y036                                          net: dq[17],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[17]
+
+
+Begin Point         : U3/sdram_syn_39.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[1](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y026                                          pin: U3/sdram_syn_39.opad
+net (fo=1)          x020y036                                          net: addr[1],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[1]
+
+
+Begin Point         : U3/sdram_syn_40.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[0](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y029                                          pin: U3/sdram_syn_40.opad
+net (fo=1)          x020y036                                          net: addr[0],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[0]
+
+
+Begin Point         : U3/sdram_syn_6.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.we_n(triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y041                                          pin: U3/sdram_syn_6.opad
+net (fo=1)          x020y036                                          net: we_n,  NOFILE(0)
+                                                                      pin: U3/sdram.we_n
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/cnt4_reg[0]_syn_9.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[16](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x011y024z3                                        pin: U3/u2_ram/u2_wrrd/cnt4_reg[0]_syn_9.q[0]
+net (fo=33)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_25.ts
+PAD                 x000y005                                          pin: U3/sdram_syn_25.bpad
+net (fo=0)          x020y036                                          net: dq[16],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[16]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/cnt4_reg[0]_syn_9.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[1](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x011y024z3                                        pin: U3/u2_ram/u2_wrrd/cnt4_reg[0]_syn_9.q[0]
+net (fo=33)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_7.ts
+PAD                 x000y059                                          pin: U3/sdram_syn_7.bpad
+net (fo=0)          x020y036                                          net: dq[1],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[1]
+
+
+Begin Point         : U3/sdram_syn_41.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[10](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y029                                          pin: U3/sdram_syn_41.opad
+net (fo=1)          x020y036                                          net: addr[10],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[10]
+
+
+Begin Point         : U3/sdram_syn_42.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.ba[0](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y032                                          pin: U3/sdram_syn_42.opad
+net (fo=1)          x020y036                                          net: ba[0],  NOFILE(0)
+                                                                      pin: U3/sdram.ba[0]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/cnt4_reg[0]_syn_9.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[31](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x011y024z3                                        pin: U3/u2_ram/u2_wrrd/cnt4_reg[0]_syn_9.q[0]
+net (fo=33)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_26.ts
+PAD                 x040y005                                          pin: U3/sdram_syn_26.bpad
+net (fo=0)          x020y036                                          net: dq[31],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[31]
+
+
+
+Min Delay Paths
+----------------------------------------------------------------------------------------------------
+Begin Point         : U3/sdram_syn_38.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[2](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y026                                          pin: U3/sdram_syn_38.opad
+net (fo=1)          x020y036                                          net: addr[2],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[2]
+
+
+Begin Point         : U3/sdram_syn_24.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[17](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y005                                          pin: U3/sdram_syn_24.bpad
+net (fo=0)          x020y036                                          net: dq[17],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[17]
+
+
+Begin Point         : U3/sdram_syn_39.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[1](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y026                                          pin: U3/sdram_syn_39.opad
+net (fo=1)          x020y036                                          net: addr[1],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[1]
+
+
+Begin Point         : U3/sdram_syn_40.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[0](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y029                                          pin: U3/sdram_syn_40.opad
+net (fo=1)          x020y036                                          net: addr[0],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[0]
+
+
+Begin Point         : U3/sdram_syn_6.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.we_n(triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y041                                          pin: U3/sdram_syn_6.opad
+net (fo=1)          x020y036                                          net: we_n,  NOFILE(0)
+                                                                      pin: U3/sdram.we_n
+
+
+Begin Point         : U3/sdram_syn_25.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[16](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y005                                          pin: U3/sdram_syn_25.bpad
+net (fo=0)          x020y036                                          net: dq[16],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[16]
+
+
+Begin Point         : U3/sdram_syn_7.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[1](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y059                                          pin: U3/sdram_syn_7.bpad
+net (fo=0)          x020y036                                          net: dq[1],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[1]
+
+
+Begin Point         : U3/sdram_syn_41.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[10](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y029                                          pin: U3/sdram_syn_41.opad
+net (fo=1)          x020y036                                          net: addr[10],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[10]
+
+
+Begin Point         : U3/sdram_syn_42.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.ba[0](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y032                                          pin: U3/sdram_syn_42.opad
+net (fo=1)          x020y036                                          net: ba[0],  NOFILE(0)
+                                                                      pin: U3/sdram.ba[0]
+
+
+Begin Point         : U3/sdram_syn_26.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[31](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y005                                          pin: U3/sdram_syn_26.bpad
+net (fo=0)          x020y036                                          net: dq[31],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[31]
+
+
+
+
+Timing details for constraint:
+	set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+	set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     
+set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+
+Type           :     MCP
+
+Statistics:
+Max            : SWNS      0.000ns, STNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     Set Multicycle Path (Ignored)
+Constr         :     set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+               :     set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+
+Statistics:
+	Setup Check    :             32   end points,              32   paths
+	Setup Check    :             32   end points,              32   paths
+----------------------------------------------------------------------------------------------------
+
+Max Delay Paths
+----------------------------------------------------------------------------------------------------
+Begin Point         : U3/sdram.dq[1](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_7.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[1],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_7.bpad
+PAD (reg)           x000y059                                               
+
+
+Begin Point         : U3/sdram.dq[16](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_25.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[16],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_25.bpad
+PAD (reg)           x000y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[16],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[31](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_26.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[31],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_26.bpad
+PAD (reg)           x040y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[31],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[30](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_27.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[30],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_27.bpad
+PAD (reg)           x040y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[30],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[4](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_43.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[4],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_43.bpad
+PAD (reg)           x000y053                                               
+
+
+Begin Point         : U3/sdram.dq[2](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_28.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[2],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_28.bpad
+PAD (reg)           x000y056                                               
+
+
+Begin Point         : U3/sdram.dq[29](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_29.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[29],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_29.bpad
+PAD (reg)           x040y008                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[29],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[8](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_47.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[8],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_47.bpad
+PAD (reg)           x040y044                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[8],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[28](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_30.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[28],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_30.bpad
+PAD (reg)           x040y008                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[28],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[9](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_48.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[9],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_48.bpad
+PAD (reg)           x040y044                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[9],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+
+Min Delay Paths
+----------------------------------------------------------------------------------------------------
+Begin Point         : U3/sdram.dq[1](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_7.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[1],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_7.bpad
+PAD (reg)           x000y059                                               
+
+
+Begin Point         : U3/sdram.dq[16](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_25.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[16],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_25.bpad
+PAD (reg)           x000y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[16],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[31](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_26.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[31],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_26.bpad
+PAD (reg)           x040y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[31],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[30](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_27.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[30],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_27.bpad
+PAD (reg)           x040y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[30],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[4](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_43.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[4],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_43.bpad
+PAD (reg)           x000y053                                               
+
+
+Begin Point         : U3/sdram.dq[2](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_28.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[2],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_28.bpad
+PAD (reg)           x000y056                                               
+
+
+Begin Point         : U3/sdram.dq[29](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_29.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[29],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_29.bpad
+PAD (reg)           x040y008                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[29],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[8](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_47.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[8],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_47.bpad
+PAD (reg)           x040y044                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[8],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[28](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_30.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[28],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_30.bpad
+PAD (reg)           x040y008                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[28],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[9](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_48.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[9],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_48.bpad
+PAD (reg)           x040y044                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[9],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+
+
+
+

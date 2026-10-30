@@ -1,0 +1,99 @@
+﻿  OK  src\I2S_receiver.v
+  OK  src\audio_arc_calculate.v
+  OK  src\audio_fifo.v
+  OK  src\audio_gen.v
+  OK  src\audio_pwm.v
+  OK  src\audio_sd_reader.v
+  OK  src\ax_debounce.v
+  OK  src\bmp_read.v
+  OK  src\buzzer_beep.v
+  OK  src\carousel_ctl.v
+  OK  src\color_bar.v
+  OK  src\dbl_buf_addr.v
+  OK  src\dbl_buf_ctl.v
+  OK  src\fat32_reader.v
+  OK  src\frame_fifo_read.v
+  OK  src\frame_fifo_write.v
+  OK  src\frame_read_write.v
+  OK  src\hdmi_audio_tone_i2s_64fs.v
+  OK  src\hdmi_phy_wrapper.v
+  OK  src\i2s_tx.v
+  OK  src\lane_lvds_10_1.v
+  OK  src\sd_arbiter.v
+  OK  src\sd_card_bmp.v
+  OK  src\seg_decoder.v
+  OK  src\seg_disp_top.v
+  OK  src\seg_scan.v
+  OK  src\sin_lut.v
+  OK  src\startup_pulse.v
+  **  src\top.v
+        top: 例化 sys_pll_m0 (sys_pll) 的端口 '.refclk' 在模块 sys_pll 里不存在
+        top: 例化 sys_pll_m0 (sys_pll) 的端口 '.clk0_out' 在模块 sys_pll 里不存在
+        top: 例化 sys_pll_m0 (sys_pll) 的端口 '.clk1_out' 在模块 sys_pll 里不存在
+        top: 例化 sys_pll_m0 (sys_pll) 的端口 '.clk2_out' 在模块 sys_pll 里不存在
+        top: 例化 sys_pll_m0 (sys_pll) 的端口 '.reset' 在模块 sys_pll 里不存在
+        top: 例化 video_pll_m0 (video_pll) 的端口 '.refclk' 在模块 video_pll 里不存在
+        top: 例化 video_pll_m0 (video_pll) 的端口 '.clk0_out' 在模块 video_pll 里不存在
+        top: 例化 video_pll_m0 (video_pll) 的端口 '.clk1_out' 在模块 video_pll 里不存在
+        top: 例化 video_pll_m0 (video_pll) 的端口 '.reset' 在模块 video_pll 里不存在
+  ??  src\video_define.v                       解析失败，跳过： line:1 column:1: Illegal character '`'
+  OK  src\video_delay.v
+  OK  src\video_rgb_to_axis_640x480.v
+  OK  src\video_timing_data.v
+  OK  src\wav_loader.v
+  ??  src\hdmi\global_def.v                    解析失败，跳过：None: at end of input
+  ??  src\hdmi\hdmi_1_4b_transmitter_core_wrapper.enc.v 解析失败，跳过： line:85: before: "+"
+  OK  src\hdmi\hdmi_bmp.v
+  OK  src\hdmi\hdmi_top.v
+  OK  src\hdmi\hdmi_tx_display.v
+  OK  src\hdmi\vga_disp.v
+  ??  src\hdmi\enc_file\video_tpg_1024768.enc.v 解析失败，跳过： line:9: before: "P2YdjmVHvXf7bSmpZEz"
+  ??  src\hdmi\enc_file\video_tpg_1080p.enc.v  解析失败，跳过： line:9: before: "Miiy849ZJUXVeVjGo5"
+  ??  src\hdmi\enc_file\video_tpg_12801024p.enc.v 解析失败，跳过： line:9: before: "dGcrc7Mm1EKdCu0zMOLVqDJvMY0kb7V9qy5Em8HloJ9KVrIY40ZuEtjqgKgodFv1"
+  ??  src\hdmi\enc_file\video_tpg_1280800.enc.v 解析失败，跳过： line:9: before: "SqS2kSvfzBsRHjVs6YH6L8"
+  ??  src\hdmi\enc_file\video_tpg_16801050p.enc.v 解析失败，跳过： line:9: before: "k0fmFALr6c4cPH9l31rBrtz7YD"
+  ??  src\hdmi\enc_file\video_tpg_800600.enc.v 解析失败，跳过： line:9: before: "JVYtnyBHiXoGACaz7KnNgdsy"
+  OK  src\hdmi\tb\tb.v
+  OK  src\hdmi\tb\tb_1.v
+  OK  src\hud\hud_data_gen.v
+  OK  src\hud\hud_gauge.v
+  OK  src\hud\hud_keys.v
+  OK  src\hud\hud_label.v
+  OK  src\hud\hud_overlay.v
+  OK  src\hud\hud_panel.v
+  OK  src\hud\hud_rom_cjk.v
+  OK  src\hud\hud_rom_dial.v
+  OK  src\hud\hud_rom_font.v
+  OK  src\hud\hud_rom_sincos.v
+  OK  src\hud\hud_seg_data.v
+  OK  src\hud\hud_switches.v
+  OK  src\hud\hud_top.v
+  OK  src\hud\hud_trend.v
+  OK  src\hud\hud_xy_gen.v
+  ??  src\ip_core\afifo_16_256.v               解析失败，跳过： line:66: before: ";"
+  ??  src\ip_core\afifo_8i_16o_1024.v          解析失败，跳过： line:67: before: ";"
+  ??  src\ip_core\afifo_8i_16o_1024_bb.v       解析失败，跳过： line:62: before: ";"
+  ??  src\ip_core\afifo_8i_32o_1024.v          解析失败，跳过： line:67: before: ";"
+  ??  src\ip_core\afifo_8i_32o_1024_bb.v       解析失败，跳过： line:62: before: ";"
+  ??  src\ip_core\sys_pll.v                    解析失败，跳过： line:100: before: "."
+  OK  src\ip_core\sys_pll_bb.v
+  ??  src\ip_core\video_pll.v                  解析失败，跳过： line:92: before: "."
+  OK  src\ip_core\video_pll_bb.v
+  ??  src\sdram\sdram.v                        解析失败，跳过： line:20: before: "output"
+  ??  src\sdram\enc_file\global_def.v          解析失败，跳过：None: at end of input
+  ??  src\sdram\enc_file\sdr_as_ram.enc.v      解析失败，跳过： line:25: before: "input"
+  ??  src\sdram\enc_file\sdr_init_ref.enc.v    解析失败，跳过： line:34: before: "output"
+  ??  src\sdram\enc_file\sdr_wrrd.enc.v        解析失败，跳过： line:25: before: "RgFY1umSQebEhVRlLICyCHR"
+  ??  src\sdram_r\sdram_cmd.v                  解析失败，跳过： line:75: before: ";"
+  OK  src\sdram_r\sdram_controller.v
+  ??  src\sdram_r\sdram_ctrl.v                 解析失败，跳过： line:51: before: "assign"
+  ??  src\sdram_r\sdram_data.v                 解析失败，跳过： line:35: before: ";"
+  OK  src\sdram_r\sdram_fifo_ctrl.v
+  ??  src\sdram_r\sdram_para.v                 解析失败，跳过：None: at end of input
+  OK  src\sdram_r\sdram_top.v
+  OK  src\sd_card\sd_card_cmd.v
+  OK  src\sd_card\sd_card_sec_read_write.v
+  OK  src\sd_card\sd_card_top.v
+  OK  src\sd_card\spi_master.v
+
+共发现 9 处端口名不匹配。

@@ -1,0 +1,22 @@
+Location         : C:\Users\10821\Desktop\plan_fu\C\pic_sdram_Runs\phy_1
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : top
+Device           : EG4S20BG256
+Speed            : NA
+
+Timing Mode      : final
+Setup            : WNS  -146ps  TNS     -358ps  NUM_FEPS     3
+Hold             : WNS     3ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+--------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+--------------------------------------------------------------------------------------------------
+      route      |    2     |  32s(78%)   |    38(74%)    |        589        |        589        
+      place      |    2     |   9s(21%)   |    13(25%)    |        583        |        583        
+    import_db    |    1     |   0s(0%)    |     0(0%)     |        150        |        150        
+  import_device  |    1     |   0s(0%)    |     0(0%)     |        83         |        83         
+--------------------------------------------------------------------------------------------------
+      total      |    6     |     41s     |      51       |        589        |        589        
+--------------------------------------------------------------------------------------------------

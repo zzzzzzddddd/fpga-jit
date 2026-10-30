@@ -1,0 +1,1146 @@
+Created by          : Tang Dynasty v6.2.168116
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Sat Oct  3 13:19:08 2026
+
+Top Model           : fat32_probe_top
+Device              : EG4S20BG256
+Speed               : NA
+STA coverage        : 92.84%
+Constraint File     : 
+Confidence          : Synthesized
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+
+Timing Status
+--------------------
+	SWNS: 9.513ns, STNS: 0.000ns
+	HWNS: 0.694ns, HTNS: 0.000ns
+	Period Check WNS: 0.000ns
+
+
+Clock Summary
+--------------------
+
+       Clock-Id:       C-Freq       Fanout   Clock-Name
+--------------------------------------------------------------------------------
+           clk0:       50.000          849   DeriveClock
+--------------------------------------------------------------------------------
+
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+       clk0           local            0.000     10.000                20.000          50.000                10.487          95.356            9.513      0.000            0.694      0.000            0.000              849                9             no       no
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     DeriveClock -> DeriveClock
+Type           :     Self
+From Clock     :     DeriveClock
+To Clock       :     DeriveClock
+Min Period     :     10.487ns
+Fmax           :     95.356MHz
+
+Statistics:
+Max            : SWNS      9.513ns, STNS      0.000ns,         0 Viol Endpoints,      2164 Total Endpoints,      9531 Paths Analyzed
+Min            : HWNS      0.694ns, HTNS      0.000ns,         0 Viol Endpoints,      2164 Total Endpoints,      9531 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 9.513ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[30].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.371ns (cell 5.553ns (53%), net 4.818ns (47%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.132    f     7.150          pin: u_fat32/add14_syn_399.fco
+net (fo=1)                              0.000          7.150          net: u_fat32/add14_syn_375,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_400.fci
+ADDER                                   0.132    f     7.282          pin: u_fat32/add14_syn_400.fco
+net (fo=1)                              0.000          7.282          net: u_fat32/add14_syn_379,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_401.fci
+ADDER                                   0.453    f     7.735       7  pin: u_fat32/add14_syn_401.fx[1]
+net (fo=1)                              0.562          8.297          net: u_fat32/fat_addr_b5[30],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[30]_syn_1.c
+LUT5                                    0.424    f     8.721       8  pin: u_fat32/fat_addr_b2[30]_syn_1.o
+net (fo=1)                              0.562          9.283          net: u_fat32/fat_addr_b2[30]_syn_2,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[30]_syn_3.a
+LUT3                                    0.408    f     9.691       9  pin: u_fat32/fat_addr_b2[30]_syn_3.o
+net (fo=1)                              0.562         10.253          net: u_fat32/fat_addr_b2[30],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[30].d
+SEQ (reg)                               0.118    f    10.371          net: u_fat32/fat_addr[30],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.371               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.513               
+
+Slack               : 9.579ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[28].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.305ns (cell 5.487ns (53%), net 4.818ns (47%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.132    f     7.150          pin: u_fat32/add14_syn_399.fco
+net (fo=1)                              0.000          7.150          net: u_fat32/add14_syn_375,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_400.fci
+ADDER                                   0.132    f     7.282          pin: u_fat32/add14_syn_400.fco
+net (fo=1)                              0.000          7.282          net: u_fat32/add14_syn_379,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_401.fci
+ADDER                                   0.387    f     7.669       7  pin: u_fat32/add14_syn_401.fx[0]
+net (fo=1)                              0.562          8.231          net: u_fat32/fat_addr_b5[28],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[28]_syn_1.c
+LUT5                                    0.424    f     8.655       8  pin: u_fat32/fat_addr_b2[28]_syn_1.o
+net (fo=1)                              0.562          9.217          net: u_fat32/fat_addr_b2[28]_syn_2,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[28]_syn_3.a
+LUT3                                    0.408    f     9.625       9  pin: u_fat32/fat_addr_b2[28]_syn_3.o
+net (fo=1)                              0.562         10.187          net: u_fat32/fat_addr_b2[28],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[28].d
+SEQ (reg)                               0.118    f    10.305          net: u_fat32/fat_addr[28],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.305               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.579               
+
+Slack               : 9.636ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[31].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.248ns (cell 5.430ns (52%), net 4.818ns (48%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.132    f     7.150          pin: u_fat32/add14_syn_399.fco
+net (fo=1)                              0.000          7.150          net: u_fat32/add14_syn_375,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_400.fci
+ADDER                                   0.132    f     7.282          pin: u_fat32/add14_syn_400.fco
+net (fo=1)                              0.000          7.282          net: u_fat32/add14_syn_379,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_401.fci
+ADDER                                   0.132    f     7.414          pin: u_fat32/add14_syn_401.fco
+net (fo=1)                              0.000          7.414          net: u_fat32/add14_syn_383,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_402.fci
+ADDER                                   0.198    r     7.612       7  pin: u_fat32/add14_syn_402.f[0]
+net (fo=1)                              0.562          8.174          net: u_fat32/fat_addr_b5[31],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[31]_syn_1.c
+LUT5                                    0.424    f     8.598       8  pin: u_fat32/fat_addr_b2[31]_syn_1.o
+net (fo=1)                              0.562          9.160          net: u_fat32/fat_addr_b2[31]_syn_2,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[31]_syn_3.a
+LUT3                                    0.408    f     9.568       9  pin: u_fat32/fat_addr_b2[31]_syn_3.o
+net (fo=1)                              0.562         10.130          net: u_fat32/fat_addr_b2[31],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[31].d
+SEQ (reg)                               0.118    f    10.248          net: u_fat32/fat_addr[31],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.248               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.636               
+
+Slack               : 9.645ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[26].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.239ns (cell 5.421ns (52%), net 4.818ns (48%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.132    f     7.150          pin: u_fat32/add14_syn_399.fco
+net (fo=1)                              0.000          7.150          net: u_fat32/add14_syn_375,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_400.fci
+ADDER                                   0.453    f     7.603       7  pin: u_fat32/add14_syn_400.fx[1]
+net (fo=1)                              0.562          8.165          net: u_fat32/fat_addr_b5[26],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[26]_syn_1.c
+LUT5                                    0.424    f     8.589       8  pin: u_fat32/fat_addr_b2[26]_syn_1.o
+net (fo=1)                              0.562          9.151          net: u_fat32/fat_addr_b2[26]_syn_2,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[26]_syn_3.a
+LUT3                                    0.408    f     9.559       9  pin: u_fat32/fat_addr_b2[26]_syn_3.o
+net (fo=1)                              0.562         10.121          net: u_fat32/fat_addr_b2[26],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[26].d
+SEQ (reg)                               0.118    f    10.239          net: u_fat32/fat_addr[26],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.239               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.645               
+
+Slack               : 9.702ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[29].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.182ns (cell 5.364ns (52%), net 4.818ns (48%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.132    f     7.150          pin: u_fat32/add14_syn_399.fco
+net (fo=1)                              0.000          7.150          net: u_fat32/add14_syn_375,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_400.fci
+ADDER                                   0.132    f     7.282          pin: u_fat32/add14_syn_400.fco
+net (fo=1)                              0.000          7.282          net: u_fat32/add14_syn_379,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_401.fci
+ADDER                                   0.264    r     7.546       7  pin: u_fat32/add14_syn_401.f[1]
+net (fo=1)                              0.562          8.108          net: u_fat32/fat_addr_b5[29],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[29]_syn_2.c
+LUT5                                    0.424    f     8.532       8  pin: u_fat32/fat_addr_b2[29]_syn_2.o
+net (fo=1)                              0.562          9.094          net: u_fat32/fat_addr_b2[29]_syn_3,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[29]_syn_4.a
+LUT3                                    0.408    f     9.502       9  pin: u_fat32/fat_addr_b2[29]_syn_4.o
+net (fo=1)                              0.562         10.064          net: u_fat32/fat_addr_b2[29],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[29].d
+SEQ (reg)                               0.118    f    10.182          net: u_fat32/fat_addr[29],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.182               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.702               
+
+Slack               : 9.711ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[24].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.173ns (cell 5.355ns (52%), net 4.818ns (48%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.132    f     7.150          pin: u_fat32/add14_syn_399.fco
+net (fo=1)                              0.000          7.150          net: u_fat32/add14_syn_375,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_400.fci
+ADDER                                   0.387    f     7.537       7  pin: u_fat32/add14_syn_400.fx[0]
+net (fo=1)                              0.562          8.099          net: u_fat32/fat_addr_b5[24],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[24]_syn_1.c
+LUT5                                    0.424    f     8.523       8  pin: u_fat32/fat_addr_b2[24]_syn_1.o
+net (fo=1)                              0.562          9.085          net: u_fat32/fat_addr_b2[24]_syn_2,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[24]_syn_3.a
+LUT3                                    0.408    f     9.493       9  pin: u_fat32/fat_addr_b2[24]_syn_3.o
+net (fo=1)                              0.562         10.055          net: u_fat32/fat_addr_b2[24],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[24].d
+SEQ (reg)                               0.118    f    10.173          net: u_fat32/fat_addr[24],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.173               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.711               
+
+Slack               : 9.768ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[27].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.116ns (cell 5.298ns (52%), net 4.818ns (48%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.132    f     7.150          pin: u_fat32/add14_syn_399.fco
+net (fo=1)                              0.000          7.150          net: u_fat32/add14_syn_375,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_400.fci
+ADDER                                   0.132    f     7.282          pin: u_fat32/add14_syn_400.fco
+net (fo=1)                              0.000          7.282          net: u_fat32/add14_syn_379,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_401.fci
+ADDER                                   0.198    r     7.480       7  pin: u_fat32/add14_syn_401.f[0]
+net (fo=1)                              0.562          8.042          net: u_fat32/fat_addr_b5[27],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[27]_syn_1.c
+LUT5                                    0.424    f     8.466       8  pin: u_fat32/fat_addr_b2[27]_syn_1.o
+net (fo=1)                              0.562          9.028          net: u_fat32/fat_addr_b2[27]_syn_2,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[27]_syn_3.a
+LUT3                                    0.408    f     9.436       9  pin: u_fat32/fat_addr_b2[27]_syn_3.o
+net (fo=1)                              0.562          9.998          net: u_fat32/fat_addr_b2[27],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[27].d
+SEQ (reg)                               0.118    f    10.116          net: u_fat32/fat_addr[27],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.116               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.768               
+
+Slack               : 9.777ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[22].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.107ns (cell 5.289ns (52%), net 4.818ns (48%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.453    f     7.471       7  pin: u_fat32/add14_syn_399.fx[1]
+net (fo=1)                              0.562          8.033          net: u_fat32/fat_addr_b5[22],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[22]_syn_1.c
+LUT5                                    0.424    f     8.457       8  pin: u_fat32/fat_addr_b2[22]_syn_1.o
+net (fo=1)                              0.562          9.019          net: u_fat32/fat_addr_b2[22]_syn_2,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[22]_syn_3.a
+LUT3                                    0.408    f     9.427       9  pin: u_fat32/fat_addr_b2[22]_syn_3.o
+net (fo=1)                              0.562          9.989          net: u_fat32/fat_addr_b2[22],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[22].d
+SEQ (reg)                               0.118    f    10.107          net: u_fat32/fat_addr[22],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.107               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.777               
+
+Slack               : 9.834ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[25].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.050ns (cell 5.232ns (52%), net 4.818ns (48%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.132    f     7.150          pin: u_fat32/add14_syn_399.fco
+net (fo=1)                              0.000          7.150          net: u_fat32/add14_syn_375,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_400.fci
+ADDER                                   0.264    r     7.414       7  pin: u_fat32/add14_syn_400.f[1]
+net (fo=1)                              0.562          7.976          net: u_fat32/fat_addr_b5[25],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[25]_syn_1.c
+LUT5                                    0.424    f     8.400       8  pin: u_fat32/fat_addr_b2[25]_syn_1.o
+net (fo=1)                              0.562          8.962          net: u_fat32/fat_addr_b2[25]_syn_2,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[25]_syn_3.a
+LUT3                                    0.408    f     9.370       9  pin: u_fat32/fat_addr_b2[25]_syn_3.o
+net (fo=1)                              0.562          9.932          net: u_fat32/fat_addr_b2[25],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[25].d
+SEQ (reg)                               0.118    f    10.050          net: u_fat32/fat_addr[25],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.050               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.834               
+
+Slack               : 9.843ns
+Begin Point         : u_fat32/dir_cluster_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_fat32/fat_addr_reg[20].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 10.041ns (cell 5.223ns (52%), net 4.818ns (48%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=4  LUT3=3  LUT5=2 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_fat32/dir_cluster_reg[1].q
+net (fo=6)                              0.770          0.916          net: u_fat32/dir_cluster[1],  ../../../src/fat32_reader.v(195)
+                                                                      pin: u_fat32/sub3_syn_220.b[0]
+ADDER                                   0.836    f     1.752       1  pin: u_fat32/sub3_syn_220.fco
+net (fo=1)                              0.000          1.752          net: u_fat32/sub3_syn_191,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_221.fci
+ADDER                                   0.132    f     1.884          pin: u_fat32/sub3_syn_221.fco
+net (fo=1)                              0.000          1.884          net: u_fat32/sub3_syn_195,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/sub3_syn_222.fci
+ADDER                                   0.387    f     2.271       2  pin: u_fat32/sub3_syn_222.fx[0]
+net (fo=2)                              0.600          2.871          net: u_fat32/sub3_syn_2[8],  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_339.b
+LUT3                                    0.408    f     3.279       3  pin: u_fat32/left_shift1_syn_339.o
+net (fo=2)                              0.600          3.879          net: u_fat32/left_shift1_syn_340,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_341.a
+LUT5                                    0.424    f     4.303       4  pin: u_fat32/left_shift1_syn_341.o
+net (fo=2)                              0.600          4.903          net: u_fat32/left_shift1_syn_154,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/left_shift1_syn_342.b
+LUT3                                    0.408    f     5.311       5  pin: u_fat32/left_shift1_syn_342.o
+net (fo=1)                              0.562          5.873          net: u_fat32/left_shift1_syn_156,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_396.a[1]
+ADDER                                   0.881    r     6.754       6  pin: u_fat32/add14_syn_396.fco
+net (fo=1)                              0.000          6.754          net: u_fat32/add14_syn_363,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_397.fci
+ADDER                                   0.132    f     6.886          pin: u_fat32/add14_syn_397.fco
+net (fo=1)                              0.000          6.886          net: u_fat32/add14_syn_367,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_398.fci
+ADDER                                   0.132    f     7.018          pin: u_fat32/add14_syn_398.fco
+net (fo=1)                              0.000          7.018          net: u_fat32/add14_syn_371,  ../../../src/fat32_reader.v(598)
+                                                                      pin: u_fat32/add14_syn_399.fci
+ADDER                                   0.387    f     7.405       7  pin: u_fat32/add14_syn_399.fx[0]
+net (fo=1)                              0.562          7.967          net: u_fat32/fat_addr_b5[20],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[20]_syn_1.c
+LUT5                                    0.424    f     8.391       8  pin: u_fat32/fat_addr_b2[20]_syn_1.o
+net (fo=1)                              0.562          8.953          net: u_fat32/fat_addr_b2[20]_syn_2,  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_b2[20]_syn_3.a
+LUT3                                    0.408    f     9.361       9  pin: u_fat32/fat_addr_b2[20]_syn_3.o
+net (fo=1)                              0.562          9.923          net: u_fat32/fat_addr_b2[20],  NOFILE(0)
+                                                                      pin: u_fat32/fat_addr_reg[20].d
+SEQ (reg)                               0.118    f    10.041          net: u_fat32/fat_addr[20],  ../../../src/fat32_reader.v(99)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.041               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.843               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[0].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[0].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[0].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[0],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[0].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[0],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[1].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[1].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[1].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[1],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[1].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[1],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[2].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[2].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[2],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[2].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[2],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[3].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[3].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[3].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[3],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[3].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[3],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[4].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[4].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[4].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[4],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[4].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[4],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[5].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[5].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[5].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[5],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[5].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[5],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[6].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[6].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[6].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[6],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[6].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[6],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[7].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[7].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[7].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[7],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[7].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[7],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[8].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[8].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[8].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[8],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[8].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[8],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_fat32/fat_addr_reg[9].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[9].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_fat32/fat_addr_reg[9].q
+net (fo=1)                              0.562          0.671          net: u_fat32/fat_addr[9],  ../../../src/fat32_reader.v(99)
+                                                                      pin: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr_reg[9].d
+SEQ (reg)                               0.084    r     0.755          net: sd_card_top_m0/sd_card_sec_read_write_m0/sec_addr[9],  ../../../src/sd_card/sd_card_sec_read_write.v(57)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------

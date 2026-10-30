@@ -1,0 +1,1104 @@
+Created by          : Tang Dynasty v6.2.168116
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Sat Oct  3 12:55:31 2026
+
+Top Model           : spi_probe_top
+Device              : EG4S20BG256
+Speed               : NA
+STA coverage        : 89.58%
+Constraint File     : 
+Confidence          : Synthesized
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+
+Timing Status
+--------------------
+	SWNS: 7.282ns, STNS: 0.000ns
+	HWNS: 0.980ns, HTNS: 0.000ns
+	Period Check WNS: 0.000ns
+
+
+Clock Summary
+--------------------
+
+       Clock-Id:       C-Freq       Fanout   Clock-Name
+--------------------------------------------------------------------------------
+           clk0:       50.000          263   DeriveClock
+--------------------------------------------------------------------------------
+
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+       clk0           local            0.000     10.000                20.000          50.000                12.718          78.629            7.282      0.000            0.980      0.000            0.000              263               11             no       no
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     DeriveClock -> DeriveClock
+Type           :     Self
+From Clock     :     DeriveClock
+To Clock       :     DeriveClock
+Min Period     :     12.718ns
+Fmax           :     78.629MHz
+
+Statistics:
+Max            : SWNS      7.282ns, STNS      0.000ns,         0 Viol Endpoints,       503 Total Endpoints,      2189 Paths Analyzed
+Min            : HWNS      0.980ns, HTNS      0.000ns,         0 Viol Endpoints,       503 Total Endpoints,      2189 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[0].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[0].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[1].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[1].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[2].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[2].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[3].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[3].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[4].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[4].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[5].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[5].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[6].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[6].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[7].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[7].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[8].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[8].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+Slack               : 7.282ns
+Begin Point         : u_spi/MISO_shift_reg[2].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : acc41_reg[9].ce (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { DeriveClock rising@20.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 12.560ns (cell 5.237ns (41%), net 7.323ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 11 ( LUT4=5  LUT5=2  LUT3=2  ADDER=2 )
+Max Fanout          : 16
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_spi/MISO_shift_reg[2].q
+net (fo=3)                              0.651          0.797          net: u_spi/data_out[2],  ../../../src/sd_card/spi_master.v(17)
+                                                                      pin: b_zc[2]_syn_3.c
+LUT3                                    0.408    f     1.205       1  pin: b_zc[2]_syn_3.o
+net (fo=2)                              0.600          1.805          net: add0_syn_3[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_6.a
+LUT3                                    0.408    f     2.213       2  pin: b_zc[2]_syn_6.o
+net (fo=2)                              0.600          2.813          net: add0_syn_9[0],  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_7.a
+LUT4                                    0.408    f     3.221       3  pin: b_zc[2]_syn_7.o
+net (fo=3)                              0.651          3.872          net: add0_syn_94,  ../../spi_probe_top.v(287)
+                                                                      pin: b_zc[2]_syn_9.a
+LUT4                                    0.408    f     4.280       4  pin: b_zc[2]_syn_9.o
+net (fo=2)                              0.600          4.880          net: b_zc[2],  ../../spi_probe_top.v(292)
+                                                                      pin: add8_syn_95.e[1]
+ADDER                                   0.715    f     5.595       5  pin: add8_syn_95.fco
+net (fo=1)                              0.000          5.595          net: add8_syn_81,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_96.fci
+ADDER                                   0.132    f     5.727          pin: add8_syn_96.fco
+net (fo=1)                              0.000          5.727          net: add8_syn_85,  ../../spi_probe_top.v(310)
+                                                                      pin: add8_syn_97.fci
+ADDER                                   0.453    f     6.180       6  pin: add8_syn_97.fx[1]
+net (fo=2)                              0.600          6.780          net: z41_total[10],  ../../spi_probe_top.v(310)
+                                                                      pin: mux96_syn_147.c
+LUT4                                    0.408    f     7.188       7  pin: mux96_syn_147.o
+net (fo=1)                              0.562          7.750          net: mux96_syn_148,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_149.a
+LUT5                                    0.424    f     8.174       8  pin: mux96_syn_149.o
+net (fo=3)                              0.651          8.825          net: mux96_syn_150,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_152.a
+LUT4                                    0.408    f     9.233       9  pin: mux96_syn_152.o
+net (fo=9)                              0.848         10.081          net: mux60_syn_28,  ../../spi_probe_top.v(399)
+                                                                      pin: mux96_syn_157.a
+LUT4                                    0.408    f    10.489      10  pin: mux96_syn_157.o
+net (fo=2)                              0.600         11.089          net: mux96_syn_158,  ../../spi_probe_top.v(313)
+                                                                      pin: mux96_syn_159.a
+LUT5                                    0.424    f    11.513      11  pin: mux96_syn_159.o
+net (fo=16)                             0.960         12.473          net: mux96_syn_2[15],  ../../spi_probe_top.v(313)
+                                                                      pin: acc41_reg[9].ce
+SEQ (reg)                               0.087    r    12.560               
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.560               
+
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.158         19.842               
+clock uncertainty                       0.000         19.842               
+clock pessimism                         0.000         19.842               
+--------------------------------------------------------------------  ---------------
+Required                                              19.842               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.282               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 0.980ns
+Begin Point         : u_spi/state_reg[4].clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_spi/state_reg[5].d (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.041ns (cell 0.193ns (18%), net 0.848ns (82%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 9
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_spi/state_reg[4].q
+net (fo=9)                              0.848          0.957          net: u_spi/state_reg_syn_1[4],  ../../../src/sd_card/spi_master.v(39)
+                                                                      pin: u_spi/state_reg[5].d
+SEQ (reg)                               0.084    r     1.041          net: u_spi/state_reg_syn_1[5],  ../../../src/sd_card/spi_master.v(39)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.041               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.980               
+
+Slack               : 1.180ns
+Begin Point         : por_rst_n_reg.clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : seg_data[7]_syn_4.rst (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.472ns (cell 0.128ns (8%), net 1.344ns (92%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 131
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.128    f     0.128          pin: por_rst_n_reg.q
+net (fo=131)                            1.344          1.472          net: por_rst_n,  ../../spi_probe_top.v(116)
+                                                                      pin: seg_data[7]_syn_4.rst
+PAD (reg)                               0.000    f     1.472               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.472               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.180               
+
+Slack               : 1.180ns
+Begin Point         : por_rst_n_reg.clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : seg_data[6]_syn_4.rst (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.472ns (cell 0.128ns (8%), net 1.344ns (92%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 131
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.128    f     0.128          pin: por_rst_n_reg.q
+net (fo=131)                            1.344          1.472          net: por_rst_n,  ../../spi_probe_top.v(116)
+                                                                      pin: seg_data[6]_syn_4.rst
+PAD (reg)                               0.000    f     1.472               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.472               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.180               
+
+Slack               : 1.180ns
+Begin Point         : por_rst_n_reg.clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : seg_data[5]_syn_4.rst (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.472ns (cell 0.128ns (8%), net 1.344ns (92%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 131
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.128    f     0.128          pin: por_rst_n_reg.q
+net (fo=131)                            1.344          1.472          net: por_rst_n,  ../../spi_probe_top.v(116)
+                                                                      pin: seg_data[5]_syn_4.rst
+PAD (reg)                               0.000    f     1.472               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.472               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.180               
+
+Slack               : 1.180ns
+Begin Point         : por_rst_n_reg.clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : seg_data[4]_syn_4.rst (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.472ns (cell 0.128ns (8%), net 1.344ns (92%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 131
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.128    f     0.128          pin: por_rst_n_reg.q
+net (fo=131)                            1.344          1.472          net: por_rst_n,  ../../spi_probe_top.v(116)
+                                                                      pin: seg_data[4]_syn_4.rst
+PAD (reg)                               0.000    f     1.472               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.472               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.180               
+
+Slack               : 1.180ns
+Begin Point         : por_rst_n_reg.clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : seg_data[3]_syn_4.rst (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.472ns (cell 0.128ns (8%), net 1.344ns (92%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 131
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.128    f     0.128          pin: por_rst_n_reg.q
+net (fo=131)                            1.344          1.472          net: por_rst_n,  ../../spi_probe_top.v(116)
+                                                                      pin: seg_data[3]_syn_4.rst
+PAD (reg)                               0.000    f     1.472               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.472               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.180               
+
+Slack               : 1.180ns
+Begin Point         : por_rst_n_reg.clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : seg_data[2]_syn_4.rst (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.472ns (cell 0.128ns (8%), net 1.344ns (92%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 131
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.128    f     0.128          pin: por_rst_n_reg.q
+net (fo=131)                            1.344          1.472          net: por_rst_n,  ../../spi_probe_top.v(116)
+                                                                      pin: seg_data[2]_syn_4.rst
+PAD (reg)                               0.000    f     1.472               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.472               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.180               
+
+Slack               : 1.180ns
+Begin Point         : por_rst_n_reg.clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : seg_data[1]_syn_4.rst (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.472ns (cell 0.128ns (8%), net 1.344ns (92%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 131
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.128    f     0.128          pin: por_rst_n_reg.q
+net (fo=131)                            1.344          1.472          net: por_rst_n,  ../../spi_probe_top.v(116)
+                                                                      pin: seg_data[1]_syn_4.rst
+PAD (reg)                               0.000    f     1.472               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.472               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.180               
+
+Slack               : 1.180ns
+Begin Point         : por_rst_n_reg.clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : seg_data[0]_syn_4.rst (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.472ns (cell 0.128ns (8%), net 1.344ns (92%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 131
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.128    f     0.128          pin: por_rst_n_reg.q
+net (fo=131)                            1.344          1.472          net: por_rst_n,  ../../spi_probe_top.v(116)
+                                                                      pin: seg_data[0]_syn_4.rst
+PAD (reg)                               0.000    f     1.472               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.472               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.180               
+
+Slack               : 1.180ns
+Begin Point         : por_rst_n_reg.clk (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : seg_sel[7]_syn_4.rst (rising edge triggered by clock DeriveClock  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { DeriveClock rising@0.000ns - DeriveClock rising@0.000ns }
+Data Path Delay     : 1.472ns (cell 0.128ns (8%), net 1.344ns (92%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 131
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.128    f     0.128          pin: por_rst_n_reg.q
+net (fo=131)                            1.344          1.472          net: por_rst_n,  ../../spi_probe_top.v(116)
+                                                                      pin: seg_sel[7]_syn_4.rst
+PAD (reg)                               0.000    f     1.472               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.472               
+
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.180               
+
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------

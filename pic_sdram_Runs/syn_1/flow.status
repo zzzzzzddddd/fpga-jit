@@ -1,0 +1,23 @@
+Location         : D:\fpga_anlu\C_1\C_1\pic_sdram_Runs\syn_1
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : top
+Device           : EG4S20BG256
+Speed            : NA
+
+Timing Mode      : basic
+Setup            : WNS    -1ps  TNS       -1ps  NUM_FEPS     1
+Hold             : WNS   471ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+--------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+--------------------------------------------------------------------------------------------------
+  optimize_gate  |    1     |  23s(52%)   |    22(52%)    |        545        |        545        
+  optimize_rtl   |    1     |  21s(47%)   |    20(47%)    |        480        |        512        
+  import_device  |    1     |   0s(0%)    |     0(0%)     |        83         |        83         
+    read_adc     |    1     |   0s(0%)    |     0(0%)     |        273        |        273        
+    read_sdc     |    3     |   0s(0%)    |     0(0%)     |        273        |        273        
+--------------------------------------------------------------------------------------------------
+      total      |    7     |     44s     |      42       |        545        |        545        
+--------------------------------------------------------------------------------------------------

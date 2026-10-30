@@ -1,0 +1,1267 @@
+Created by          : Tang Dynasty v6.2.168116
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Fri Oct 30 20:59:25 2026
+
+Top Model           : top
+Device              : EG4S20BG256
+Speed               : NA
+STA coverage        : 100.00%
+Constraint File     : D:/fpga_anlu/C_1/C_1/top.sdc;
+Confidence          : Routed
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+MCP/SMD Summary
+--------------------
+
+		Max Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+		        48            0            0           48   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+		        32            0            0           32   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+		         2            2            0            0   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+		        18            9            0            9   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 7.700
+		        18           18            0            0   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 7.700
+
+		Min Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+		        48            0            0           48   set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+		        32            0            0           32   set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+		        11            2            0            9   set_multicycle_path -hold  1 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+
+Status of timing exceptions
+--------------------------------------------------
+
+MCP/SMD Details
+--------------------
+
+
+Constraint     :   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+Check Type     :   Max
+--------------------------------------------------------------------------------
+Total Paths    :           48
+Dominated      :            0,          0.0%
+Ignored        :           48,        100.0%
+               :           48, by set_false_path -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+
+
+Constraint     :   set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+Check Type     :   Min
+--------------------------------------------------------------------------------
+Total Paths    :           48
+Dominated      :            0,          0.0%
+Ignored        :           48,        100.0%
+               :           48, by set_false_path -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+
+
+Constraint     :   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+Check Type     :   Max
+--------------------------------------------------------------------------------
+Total Paths    :           32
+Dominated      :            0,          0.0%
+Ignored        :           32,        100.0%
+               :           32, by set_false_path -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+
+
+Constraint     :   set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+Check Type     :   Min
+--------------------------------------------------------------------------------
+Total Paths    :           32
+Dominated      :            0,          0.0%
+Ignored        :           32,        100.0%
+               :           32, by set_false_path -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+
+
+Constraint     :   set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+Check Type     :   Max
+--------------------------------------------------------------------------------
+Total Paths    :            2
+Dominated      :            2,        100.0%
+
+
+Constraint     :   set_multicycle_path -hold  1 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+Check Type     :   Min
+--------------------------------------------------------------------------------
+Total Paths    :           11
+Dominated      :            2,         18.2%
+Ignored        :            9,         81.8%
+               :            9, by set_false_path -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -hold 7.700
+
+
+Constraint     :   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 7.700
+Check Type     :   Max
+--------------------------------------------------------------------------------
+Total Paths    :           18
+Dominated      :            9,         50.0%
+Ignored        :            9,         50.0%
+               :            9, by set_false_path -from [get_clocks {video_clk}] -to [get_clocks {ext_mem_clk}]
+
+
+Constraint     :   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 7.700
+Check Type     :   Max
+--------------------------------------------------------------------------------
+Total Paths    :           18
+Dominated      :           18,        100.0%
+
+
+Details on timing exceptions
+--------------------------------------------------
+
+Timing details for constraint:
+	set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+	set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     
+set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+
+Type           :     MCP
+
+Statistics:
+Max            : SWNS      0.000ns, STNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     Set Multicycle Path (Ignored)
+Constr         :     set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+               :     set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk}] -to [get_clocks {ext_mem_clk_sft}]
+
+Statistics:
+	Setup Check    :             48   end points,              48   paths
+	Setup Check    :             48   end points,              48   paths
+----------------------------------------------------------------------------------------------------
+
+Max Delay Paths
+----------------------------------------------------------------------------------------------------
+Begin Point         : U3/sdram_syn_16.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[4](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y023                                          pin: U3/sdram_syn_16.opad
+net (fo=1)          x020y036                                          net: addr[4],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[4]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[5](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x023y010z0                                        pin: U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.q[0]
+net (fo=34)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_49.ts
+PAD                 x000y053                                          pin: U3/sdram_syn_49.bpad
+net (fo=0)          x020y036                                          net: dq[5],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[5]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[27](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x023y010z0                                        pin: U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.q[0]
+net (fo=34)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_31.ts
+PAD                 x040y011                                          pin: U3/sdram_syn_31.bpad
+net (fo=0)          x020y036                                          net: dq[27],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[27]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[23](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x023y010z0                                        pin: U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.q[0]
+net (fo=34)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_18.ts
+PAD                 x000y020                                          pin: U3/sdram_syn_18.bpad
+net (fo=0)          x020y036                                          net: dq[23],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[23]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[10](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x023y010z0                                        pin: U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.q[0]
+net (fo=34)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_50.ts
+PAD                 x040y047                                          pin: U3/sdram_syn_50.bpad
+net (fo=0)          x020y036                                          net: dq[10],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[10]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[26](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x023y010z0                                        pin: U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.q[0]
+net (fo=34)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_32.ts
+PAD                 x040y014                                          pin: U3/sdram_syn_32.bpad
+net (fo=0)          x020y036                                          net: dq[26],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[26]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[22](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x023y010z0                                        pin: U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.q[0]
+net (fo=34)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_19.ts
+PAD                 x000y017                                          pin: U3/sdram_syn_19.bpad
+net (fo=0)          x020y036                                          net: dq[22],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[22]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[11](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x023y010z0                                        pin: U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.q[0]
+net (fo=34)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_51.ts
+PAD                 x040y047                                          pin: U3/sdram_syn_51.bpad
+net (fo=0)          x020y036                                          net: dq[11],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[11]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[25](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x023y010z0                                        pin: U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.q[0]
+net (fo=34)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_33.ts
+PAD                 x040y020                                          pin: U3/sdram_syn_33.bpad
+net (fo=0)          x020y036                                          net: dq[25],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[25]
+
+
+Begin Point         : U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.clk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[21](triggered by clock ext_mem_clk_sft)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x023y010z0                                        pin: U3/u2_ram/u2_wrrd/sdr_t_reg_syn_10.q[0]
+net (fo=34)                                                           net: U3/u2_ram/u2_wrrd/sdr_t,  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+                                                                      pin: U3/sdram_syn_20.ts
+PAD                 x000y014                                          pin: U3/sdram_syn_20.bpad
+net (fo=0)          x020y036                                          net: dq[21],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[21]
+
+
+
+Min Delay Paths
+----------------------------------------------------------------------------------------------------
+Begin Point         : U3/sdram_syn_16.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.addr[4](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y023                                          pin: U3/sdram_syn_16.opad
+net (fo=1)          x020y036                                          net: addr[4],  NOFILE(0)
+                                                                      pin: U3/sdram.addr[4]
+
+
+Begin Point         : U3/sdram_syn_49.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[5](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y053                                          pin: U3/sdram_syn_49.bpad
+net (fo=0)          x020y036                                          net: dq[5],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[5]
+
+
+Begin Point         : U3/sdram_syn_31.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[27](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y011                                          pin: U3/sdram_syn_31.bpad
+net (fo=0)          x020y036                                          net: dq[27],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[27]
+
+
+Begin Point         : U3/sdram_syn_18.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[23](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y020                                          pin: U3/sdram_syn_18.bpad
+net (fo=0)          x020y036                                          net: dq[23],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[23]
+
+
+Begin Point         : U3/sdram_syn_50.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[10](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y047                                          pin: U3/sdram_syn_50.bpad
+net (fo=0)          x020y036                                          net: dq[10],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[10]
+
+
+Begin Point         : U3/sdram_syn_32.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[26](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y014                                          pin: U3/sdram_syn_32.bpad
+net (fo=0)          x020y036                                          net: dq[26],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[26]
+
+
+Begin Point         : U3/sdram_syn_19.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[22](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y017                                          pin: U3/sdram_syn_19.bpad
+net (fo=0)          x020y036                                          net: dq[22],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[22]
+
+
+Begin Point         : U3/sdram_syn_51.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[11](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y047                                          pin: U3/sdram_syn_51.bpad
+net (fo=0)          x020y036                                          net: dq[11],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[11]
+
+
+Begin Point         : U3/sdram_syn_33.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[25](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x040y020                                          pin: U3/sdram_syn_33.bpad
+net (fo=0)          x020y036                                          net: dq[25],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[25]
+
+
+Begin Point         : U3/sdram_syn_20.osclk(triggered by clock ext_mem_clk)
+End Point           : U3/sdram.dq[21](triggered by clock ext_mem_clk_sft)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+PAD (clk2q)         x000y014                                          pin: U3/sdram_syn_20.bpad
+net (fo=0)          x020y036                                          net: dq[21],  NOFILE(0)
+                                                                      pin: U3/sdram.dq[21]
+
+
+
+
+Timing details for constraint:
+	set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+	set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     
+set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+
+Type           :     MCP
+
+Statistics:
+Max            : SWNS      0.000ns, STNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     Set Multicycle Path (Ignored)
+Constr         :     set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+               :     set_multicycle_path -hold 1  -from [get_clocks {ext_mem_clk_sft}] -to [get_clocks {ext_mem_clk}]
+
+Statistics:
+	Setup Check    :             32   end points,              32   paths
+	Setup Check    :             32   end points,              32   paths
+----------------------------------------------------------------------------------------------------
+
+Max Delay Paths
+----------------------------------------------------------------------------------------------------
+Begin Point         : U3/sdram.dq[16](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_25.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[16],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_25.bpad
+PAD (reg)           x000y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[16],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[1](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_7.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[1],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_7.bpad
+PAD (reg)           x000y059                                               
+
+
+Begin Point         : U3/sdram.dq[31](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_26.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[31],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_26.bpad
+PAD (reg)           x040y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[31],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[4](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_43.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[4],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_43.bpad
+PAD (reg)           x000y053                                               
+
+
+Begin Point         : U3/sdram.dq[30](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_27.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[30],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_27.bpad
+PAD (reg)           x040y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[30],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[2](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_28.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[2],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_28.bpad
+PAD (reg)           x000y056                                               
+
+
+Begin Point         : U3/sdram.dq[8](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_47.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[8],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_47.bpad
+PAD (reg)           x040y044                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[8],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[29](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_29.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[29],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_29.bpad
+PAD (reg)           x040y008                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[29],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[9](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_48.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[9],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_48.bpad
+PAD (reg)           x040y044                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[9],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[28](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_30.bpad(triggered by clock ext_mem_clk)
+Check Type          : setup
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[28],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_30.bpad
+PAD (reg)           x040y008                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[28],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+
+Min Delay Paths
+----------------------------------------------------------------------------------------------------
+Begin Point         : U3/sdram.dq[16](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_25.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[16],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_25.bpad
+PAD (reg)           x000y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[16],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[1](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_7.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[1],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_7.bpad
+PAD (reg)           x000y059                                               
+
+
+Begin Point         : U3/sdram.dq[31](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_26.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[31],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_26.bpad
+PAD (reg)           x040y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[31],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[4](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_43.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[4],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_43.bpad
+PAD (reg)           x000y053                                               
+
+
+Begin Point         : U3/sdram.dq[30](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_27.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[30],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_27.bpad
+PAD (reg)           x040y005                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[30],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[2](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_28.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[2],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_28.bpad
+PAD (reg)           x000y056                                               
+
+
+Begin Point         : U3/sdram.dq[8](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_47.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[8],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_47.bpad
+PAD (reg)           x040y044                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[8],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[29](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_29.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[29],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_29.bpad
+PAD (reg)           x040y008                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[29],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[9](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_48.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[9],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_48.bpad
+PAD (reg)           x040y044                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[9],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+Begin Point         : U3/sdram.dq[28](triggered by clock ext_mem_clk_sft)
+End Point           : U3/sdram_syn_30.bpad(triggered by clock ext_mem_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+net (fo=0)                                                            net: dq[28],  NOFILE(0)
+                                                                      pin: U3/sdram_syn_30.bpad
+PAD (reg)           x040y008                                          net: U3/u2_ram/u2_wrrd/Sdr_rd_dout[28],  ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+
+
+
+
+Timing details for constraint:
+	set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+	set_multicycle_path -hold  1 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     
+set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+set_multicycle_path -hold  1 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+
+Type           :     MCP
+
+Statistics:
+Max            : SWNS      7.971ns, STNS      0.000ns,         0 Viol Endpoints,         4 Total Endpoints,         2 Paths Analyzed
+Min            : HWNS      4.643ns, HTNS      0.000ns,         0 Viol Endpoints,         4 Total Endpoints,         2 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 7.971ns
+Begin Point         : wr_tog_reg_syn_8.clk (rising edge triggered by clock ext_mem_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })
+End Point           : sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.a[0] (rising edge triggered by clock sd_card_clk  { rise@0.000000ns  fall@5.000000ns  period=10.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 12.000ns { sd_card_clk rising@20.000ns - ext_mem_clk rising@8.000ns }
+Data Path Delay     : 3.792ns (cell 1.119ns (29%), net 2.673ns (71%))
+Clock Skew          : 0.021ns
+Logic Level         : 2 ( LUT5=2 )
+Max Fanout          : 3
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.660          1.660          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.853          3.513          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -2.067          1.446          pin: sys_pll_m0/pll_inst.clkc[1]
+net (fo=479)                            2.276          3.722          net: U3/u2_ram/u1_init_ref/Sdr_clk,  ../../src/sdram/enc_file/sdr_init_ref.enc.v(16)
+                                                                      pin: wr_tog_reg_syn_8.clk
+launch edge                             8.000    r    11.722               
+--------------------------------------------------------------------  ---------------
+clk2q               x027y008z0          0.146    r    11.868          pin: wr_tog_reg_syn_8.q[0]
+net (fo=3)                              1.935         13.803          net: sd_card_bmp_m0/bmp_read_m0/write_req_ack,  ../../src/bmp_read.v(54)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.b[1]
+LUT5                x033y021z3          0.431    f    14.234       1  pin: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.f[1]
+net (fo=1)                              0.738         14.972          net: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_5,  ../../src/bmp_read.v(366)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.a[0]
+LUT5 (reg)          x033y021z3          0.542    f    15.514       2  net: sd_card_bmp_m0/bmp_read_m0/write_req,  ../../src/bmp_read.v(53)
+--------------------------------------------------------------------  ---------------
+Arrival                                               15.514               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.493          1.493          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.665          3.158          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.857          1.301          pin: sys_pll_m0/pll_inst.clkc[0]
+net (fo=1)                              0.000          1.301          net: sys_pll_m0/clk0_buf,  ../../al_ip/sys_pll.v(38)
+                                                                      pin: sys_pll_m0/bufg_feedback.clki
+GCLK                x001y001z2          0.000          1.301          pin: sys_pll_m0/bufg_feedback.clko
+net (fo=1518)                           2.045          3.346          net: sd_card_clk,  ../../src/top.v(108)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.clk
+capture edge                           20.000    r    23.346               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         23.230               
+clock uncertainty                      -0.100         23.130               
+clock pessimism                         0.355         23.485               
+--------------------------------------------------------------------  ---------------
+Required                                              23.485               
+--------------------------------------------------------------------  ---------------
+Slack                                                  7.971               
+
+Slack               : 8.551ns
+Begin Point         : wr_tog_reg_syn_8.clk (rising edge triggered by clock ext_mem_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })
+End Point           : sd_card_bmp_m0/bmp_read_m0/mux77_syn_80.b[0] (rising edge triggered by clock sd_card_clk  { rise@0.000000ns  fall@5.000000ns  period=10.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 12.000ns { sd_card_clk rising@20.000ns - ext_mem_clk rising@8.000ns }
+Data Path Delay     : 3.212ns (cell 1.467ns (45%), net 1.745ns (55%))
+Clock Skew          : 0.021ns
+Logic Level         : 3 ( LUT5=2  LUT4=1 )
+Max Fanout          : 3
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.660          1.660          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.853          3.513          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -2.067          1.446          pin: sys_pll_m0/pll_inst.clkc[1]
+net (fo=479)                            2.276          3.722          net: U3/u2_ram/u1_init_ref/Sdr_clk,  ../../src/sdram/enc_file/sdr_init_ref.enc.v(16)
+                                                                      pin: wr_tog_reg_syn_8.clk
+launch edge                             8.000    r    11.722               
+--------------------------------------------------------------------  ---------------
+clk2q               x027y008z0          0.146    r    11.868          pin: wr_tog_reg_syn_8.q[0]
+net (fo=3)                              1.071         12.939          net: sd_card_bmp_m0/bmp_read_m0/write_req_ack,  ../../src/bmp_read.v(54)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/sd_sec_read_reg_syn_33.c[0]
+LUT4                x031y022z2          0.348    f    13.287       1  pin: sd_card_bmp_m0/bmp_read_m0/sd_sec_read_reg_syn_33.f[0]
+net (fo=1)                              0.367         13.654          net: sd_card_bmp_m0/bmp_read_m0/mux54_syn_8,  ../../src/bmp_read.v(398)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/state_b[3]_syn_28.a[0]
+LUT5                x033y022z3          0.424    f    14.078       2  pin: sd_card_bmp_m0/bmp_read_m0/state_b[3]_syn_28.f[0]
+net (fo=1)                              0.307         14.385          net: sd_card_bmp_m0/bmp_read_m0/mux54_syn_93,  ../../src/bmp_read.v(398)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/mux77_syn_80.b[0]
+LUT5 (reg)          x033y020z3          0.549    f    14.934       3  net: sd_card_bmp_m0/bmp_read_m0/state[0],  ../../src/bmp_read.v(133)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.934               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.493          1.493          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.665          3.158          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.857          1.301          pin: sys_pll_m0/pll_inst.clkc[0]
+net (fo=1)                              0.000          1.301          net: sys_pll_m0/clk0_buf,  ../../al_ip/sys_pll.v(38)
+                                                                      pin: sys_pll_m0/bufg_feedback.clki
+GCLK                x001y001z2          0.000          1.301          pin: sys_pll_m0/bufg_feedback.clko
+net (fo=1518)                           2.045          3.346          net: sd_card_clk,  ../../src/top.v(108)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/mux77_syn_80.clk
+capture edge                           20.000    r    23.346               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         23.230               
+clock uncertainty                      -0.100         23.130               
+clock pessimism                         0.355         23.485               
+--------------------------------------------------------------------  ---------------
+Required                                              23.485               
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.551               
+
+Slack               : 10.121ns
+Begin Point         : U3/u2_ram/u2_wrrd/col_en_reg_syn_8.clk (rising edge triggered by clock ext_mem_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })
+End Point           : frame_read_write_m0/write_buf/asy_w_rst1_reg_syn_5.sr (rising edge triggered by clock sd_card_clk  { rise@0.000000ns  fall@5.000000ns  period=10.000000 })
+Check Type          : recovery
+Process             : slow
+Budget              : 12.000ns { sd_card_clk rising@20.000ns - ext_mem_clk rising@8.000ns }
+Data Path Delay     : 1.458ns (cell 0.232ns (15%), net 1.226ns (85%))
+Clock Skew          : 0.021ns
+Logic Level         : 0
+Max Fanout          : 3
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.660          1.660          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.853          3.513          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -2.067          1.446          pin: sys_pll_m0/pll_inst.clkc[1]
+net (fo=479)                            2.276          3.722          net: U3/u2_ram/u1_init_ref/Sdr_clk,  ../../src/sdram/enc_file/sdr_init_ref.enc.v(16)
+                                                                      pin: U3/u2_ram/u2_wrrd/col_en_reg_syn_8.clk
+launch edge                             8.000    r    11.722               
+--------------------------------------------------------------------  ---------------
+clk2q               x020y012z1          0.146    r    11.868          pin: U3/u2_ram/u2_wrrd/col_en_reg_syn_8.q[0]
+net (fo=3)                              1.226         13.094          net: frame_read_write_m0/frame_fifo_write_m0/fifo_aclr,  ../../src/frame_fifo_write.v(37)
+                                                                      pin: frame_read_write_m0/write_buf/asy_w_rst1_reg_syn_5.sr
+reg                 x027y008z3          0.086    r    13.180               
+--------------------------------------------------------------------  ---------------
+Arrival                                               13.180               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.493          1.493          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.665          3.158          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.857          1.301          pin: sys_pll_m0/pll_inst.clkc[0]
+net (fo=1)                              0.000          1.301          net: sys_pll_m0/clk0_buf,  ../../al_ip/sys_pll.v(38)
+                                                                      pin: sys_pll_m0/bufg_feedback.clki
+GCLK                x001y001z2          0.000          1.301          pin: sys_pll_m0/bufg_feedback.clko
+net (fo=1518)                           2.045          3.346          net: sd_card_clk,  ../../src/top.v(108)
+                                                                      pin: frame_read_write_m0/write_buf/asy_w_rst1_reg_syn_5.clk
+capture edge                           20.000    r    23.346               
+--------------------------------------------------------------------  ---------------
+recovery                               -0.300         23.046               
+clock uncertainty                      -0.100         22.946               
+clock pessimism                         0.355         23.301               
+--------------------------------------------------------------------  ---------------
+Required                                              23.301               
+--------------------------------------------------------------------  ---------------
+Slack                                                 10.121               
+
+Slack               : 10.604ns
+Begin Point         : wr_tog_reg_syn_8.clk (rising edge triggered by clock ext_mem_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })
+End Point           : wr_tog_s_reg[0]_syn_3.mi[0] (rising edge triggered by clock sd_card_clk  { rise@0.000000ns  fall@5.000000ns  period=10.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 12.000ns { sd_card_clk rising@20.000ns - ext_mem_clk rising@8.000ns }
+Data Path Delay     : 1.159ns (cell 0.289ns (24%), net 0.870ns (76%))
+Clock Skew          : 0.021ns
+Logic Level         : 0
+Max Fanout          : 2
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.660          1.660          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.853          3.513          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -2.067          1.446          pin: sys_pll_m0/pll_inst.clkc[1]
+net (fo=479)                            2.276          3.722          net: U3/u2_ram/u1_init_ref/Sdr_clk,  ../../src/sdram/enc_file/sdr_init_ref.enc.v(16)
+                                                                      pin: wr_tog_reg_syn_8.clk
+launch edge                             8.000    r    11.722               
+--------------------------------------------------------------------  ---------------
+clk2q               x027y008z0          0.146    r    11.868          pin: wr_tog_reg_syn_8.q[1]
+net (fo=2)                              0.870         12.738          net: wr_tog,  ../../src/top.v(291)
+                                                                      pin: wr_tog_s_reg[0]_syn_3.mi[0]
+reg                 x031y012z1          0.143    r    12.881          net: wr_tog_s[0],  ../../src/top.v(297)
+--------------------------------------------------------------------  ---------------
+Arrival                                               12.881               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.493          1.493          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.665          3.158          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.857          1.301          pin: sys_pll_m0/pll_inst.clkc[0]
+net (fo=1)                              0.000          1.301          net: sys_pll_m0/clk0_buf,  ../../al_ip/sys_pll.v(38)
+                                                                      pin: sys_pll_m0/bufg_feedback.clki
+GCLK                x001y001z2          0.000          1.301          pin: sys_pll_m0/bufg_feedback.clko
+net (fo=1518)                           2.045          3.346          net: sd_card_clk,  ../../src/top.v(108)
+                                                                      pin: wr_tog_s_reg[0]_syn_3.clk
+capture edge                           20.000    r    23.346               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         23.230               
+clock uncertainty                      -0.100         23.130               
+clock pessimism                         0.355         23.485               
+--------------------------------------------------------------------  ---------------
+Required                                              23.485               
+--------------------------------------------------------------------  ---------------
+Slack                                                 10.604               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+Slack               : -1.357ns
+Begin Point         : wr_tog_reg_syn_8.clk (rising edge triggered by clock ext_mem_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })
+End Point           : wr_tog_s_reg[0]_syn_3.mi[0] (rising edge triggered by clock sd_card_clk  { rise@0.000000ns  fall@5.000000ns  period=10.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : -2.000ns { ext_mem_clk rising@8.000ns - sd_card_clk rising@10.000ns }
+Data Path Delay     : 0.819ns (cell 0.204ns (24%), net 0.615ns (76%))
+Clock Skew          : 0.015ns
+Logic Level         : 0
+Max Fanout          : 2
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.184          1.184          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.606          2.790          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.788          1.002          pin: sys_pll_m0/pll_inst.clkc[1]
+net (fo=479)                            1.938          2.940          net: U3/u2_ram/u1_init_ref/Sdr_clk,  ../../src/sdram/enc_file/sdr_init_ref.enc.v(16)
+                                                                      pin: wr_tog_reg_syn_8.clk
+launch edge                             8.000    r    10.940               
+--------------------------------------------------------------------  ---------------
+clk2q               x027y008z0          0.109    f    11.049          pin: wr_tog_reg_syn_8.q[1]
+net (fo=2)                              0.615         11.664          net: wr_tog,  ../../src/top.v(291)
+                                                                      pin: wr_tog_s_reg[0]_syn_3.mi[0]
+reg                 x031y012z1          0.095    f    11.759          net: wr_tog_s[0],  ../../src/top.v(297)
+--------------------------------------------------------------------  ---------------
+Arrival                                               11.759               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.302          1.302          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.765          3.067          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.965          1.102          pin: sys_pll_m0/pll_inst.clkc[0]
+net (fo=1)                              0.000          1.102          net: sys_pll_m0/clk0_buf,  ../../al_ip/sys_pll.v(38)
+                                                                      pin: sys_pll_m0/bufg_feedback.clki
+GCLK                x001y001z2          0.000          1.102          pin: sys_pll_m0/bufg_feedback.clko
+net (fo=1518)                           2.130          3.232          net: sd_card_clk,  ../../src/top.v(108)
+                                                                      pin: wr_tog_s_reg[0]_syn_3.clk
+capture edge                           10.000    r    13.232               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061         13.293               
+clock uncertainty                       0.100         13.393               
+clock pessimism                        -0.277         13.116               
+--------------------------------------------------------------------  ---------------
+Required                                              13.116               
+--------------------------------------------------------------------  ---------------
+Slack                                                 -1.357               
+
+Slack               : -1.328ns
+Begin Point         : U3/u2_ram/u2_wrrd/col_en_reg_syn_8.clk (rising edge triggered by clock ext_mem_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })
+End Point           : frame_read_write_m0/write_buf/asy_w_rst1_reg_syn_5.sr (rising edge triggered by clock sd_card_clk  { rise@0.000000ns  fall@5.000000ns  period=10.000000 })
+Check Type          : removal
+Process             : fast
+Budget              : -2.000ns { ext_mem_clk rising@8.000ns - sd_card_clk rising@10.000ns }
+Data Path Delay     : 1.040ns (cell 0.161ns (15%), net 0.879ns (85%))
+Clock Skew          : 0.015ns
+Logic Level         : 0
+Max Fanout          : 3
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.184          1.184          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.606          2.790          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.788          1.002          pin: sys_pll_m0/pll_inst.clkc[1]
+net (fo=479)                            1.938          2.940          net: U3/u2_ram/u1_init_ref/Sdr_clk,  ../../src/sdram/enc_file/sdr_init_ref.enc.v(16)
+                                                                      pin: U3/u2_ram/u2_wrrd/col_en_reg_syn_8.clk
+launch edge                             8.000    r    10.940               
+--------------------------------------------------------------------  ---------------
+clk2q               x020y012z1          0.109    f    11.049          pin: U3/u2_ram/u2_wrrd/col_en_reg_syn_8.q[0]
+net (fo=3)                              0.879         11.928          net: frame_read_write_m0/frame_fifo_write_m0/fifo_aclr,  ../../src/frame_fifo_write.v(37)
+                                                                      pin: frame_read_write_m0/write_buf/asy_w_rst1_reg_syn_5.sr
+reg                 x027y008z3          0.052    f    11.980               
+--------------------------------------------------------------------  ---------------
+Arrival                                               11.980               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.302          1.302          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.765          3.067          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.965          1.102          pin: sys_pll_m0/pll_inst.clkc[0]
+net (fo=1)                              0.000          1.102          net: sys_pll_m0/clk0_buf,  ../../al_ip/sys_pll.v(38)
+                                                                      pin: sys_pll_m0/bufg_feedback.clki
+GCLK                x001y001z2          0.000          1.102          pin: sys_pll_m0/bufg_feedback.clko
+net (fo=1518)                           2.130          3.232          net: sd_card_clk,  ../../src/top.v(108)
+                                                                      pin: frame_read_write_m0/write_buf/asy_w_rst1_reg_syn_5.clk
+capture edge                           10.000    r    13.232               
+--------------------------------------------------------------------  ---------------
+removal                                 0.253         13.485               
+clock uncertainty                       0.100         13.585               
+clock pessimism                        -0.277         13.308               
+--------------------------------------------------------------------  ---------------
+Required                                              13.308               
+--------------------------------------------------------------------  ---------------
+Slack                                                 -1.328               
+
+Slack               : 0.135ns
+Begin Point         : wr_tog_reg_syn_8.clk (rising edge triggered by clock ext_mem_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })
+End Point           : sd_card_bmp_m0/bmp_read_m0/mux77_syn_80.b[0] (rising edge triggered by clock sd_card_clk  { rise@0.000000ns  fall@5.000000ns  period=10.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : -2.000ns { ext_mem_clk rising@8.000ns - sd_card_clk rising@10.000ns }
+Data Path Delay     : 2.311ns (cell 1.067ns (46%), net 1.244ns (54%))
+Clock Skew          : 0.015ns
+Logic Level         : 3 ( LUT5=2  LUT4=1 )
+Max Fanout          : 3
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.184          1.184          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.606          2.790          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.788          1.002          pin: sys_pll_m0/pll_inst.clkc[1]
+net (fo=479)                            1.938          2.940          net: U3/u2_ram/u1_init_ref/Sdr_clk,  ../../src/sdram/enc_file/sdr_init_ref.enc.v(16)
+                                                                      pin: wr_tog_reg_syn_8.clk
+launch edge                             8.000    r    10.940               
+--------------------------------------------------------------------  ---------------
+clk2q               x027y008z0          0.109    f    11.049          pin: wr_tog_reg_syn_8.q[0]
+net (fo=3)                              0.765         11.814          net: sd_card_bmp_m0/bmp_read_m0/write_req_ack,  ../../src/bmp_read.v(54)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/sd_sec_read_reg_syn_33.c[0]
+LUT4                x031y022z2          0.237    r    12.051       1  pin: sd_card_bmp_m0/bmp_read_m0/sd_sec_read_reg_syn_33.f[0]
+net (fo=1)                              0.260         12.311          net: sd_card_bmp_m0/bmp_read_m0/mux54_syn_8,  ../../src/bmp_read.v(398)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/state_b[3]_syn_28.a[0]
+LUT5                x033y022z3          0.316    r    12.627       2  pin: sd_card_bmp_m0/bmp_read_m0/state_b[3]_syn_28.f[0]
+net (fo=1)                              0.219         12.846          net: sd_card_bmp_m0/bmp_read_m0/mux54_syn_93,  ../../src/bmp_read.v(398)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/mux77_syn_80.b[0]
+LUT5 (reg)          x033y020z3          0.405    r    13.251       3  net: sd_card_bmp_m0/bmp_read_m0/state[0],  ../../src/bmp_read.v(133)
+--------------------------------------------------------------------  ---------------
+Arrival                                               13.251               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.302          1.302          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.765          3.067          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.965          1.102          pin: sys_pll_m0/pll_inst.clkc[0]
+net (fo=1)                              0.000          1.102          net: sys_pll_m0/clk0_buf,  ../../al_ip/sys_pll.v(38)
+                                                                      pin: sys_pll_m0/bufg_feedback.clki
+GCLK                x001y001z2          0.000          1.102          pin: sys_pll_m0/bufg_feedback.clko
+net (fo=1518)                           2.130          3.232          net: sd_card_clk,  ../../src/top.v(108)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/mux77_syn_80.clk
+capture edge                           10.000    r    13.232               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061         13.293               
+clock uncertainty                       0.100         13.393               
+clock pessimism                        -0.277         13.116               
+--------------------------------------------------------------------  ---------------
+Required                                              13.116               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.135               
+
+Slack               : 0.503ns
+Begin Point         : wr_tog_reg_syn_8.clk (rising edge triggered by clock ext_mem_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })
+End Point           : sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.a[0] (rising edge triggered by clock sd_card_clk  { rise@0.000000ns  fall@5.000000ns  period=10.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : -2.000ns { ext_mem_clk rising@8.000ns - sd_card_clk rising@10.000ns }
+Data Path Delay     : 2.679ns (cell 0.830ns (30%), net 1.849ns (70%))
+Clock Skew          : 0.015ns
+Logic Level         : 2 ( LUT5=2 )
+Max Fanout          : 3
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.184          1.184          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.606          2.790          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.788          1.002          pin: sys_pll_m0/pll_inst.clkc[1]
+net (fo=479)                            1.938          2.940          net: U3/u2_ram/u1_init_ref/Sdr_clk,  ../../src/sdram/enc_file/sdr_init_ref.enc.v(16)
+                                                                      pin: wr_tog_reg_syn_8.clk
+launch edge                             8.000    r    10.940               
+--------------------------------------------------------------------  ---------------
+clk2q               x027y008z0          0.109    f    11.049          pin: wr_tog_reg_syn_8.q[0]
+net (fo=3)                              1.348         12.397          net: sd_card_bmp_m0/bmp_read_m0/write_req_ack,  ../../src/bmp_read.v(54)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.b[1]
+LUT5                x033y021z3          0.321    r    12.718       1  pin: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.f[1]
+net (fo=1)                              0.501         13.219          net: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_5,  ../../src/bmp_read.v(366)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.a[0]
+LUT5 (reg)          x033y021z3          0.400    r    13.619       2  net: sd_card_bmp_m0/bmp_read_m0/write_req,  ../../src/bmp_read.v(53)
+--------------------------------------------------------------------  ---------------
+Arrival                                               13.619               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                 x020y071            1.302          1.302          pin: clk_syn_2.di
+net (fo=75)         x000y000            1.765          3.067          net: clk_dup_1,  ../../src/top.v(63)
+                                                                      pin: sys_pll_m0/pll_inst.refclk
+PLL                 x000y000           -1.965          1.102          pin: sys_pll_m0/pll_inst.clkc[0]
+net (fo=1)                              0.000          1.102          net: sys_pll_m0/clk0_buf,  ../../al_ip/sys_pll.v(38)
+                                                                      pin: sys_pll_m0/bufg_feedback.clki
+GCLK                x001y001z2          0.000          1.102          pin: sys_pll_m0/bufg_feedback.clko
+net (fo=1518)                           2.130          3.232          net: sd_card_clk,  ../../src/top.v(108)
+                                                                      pin: sd_card_bmp_m0/bmp_read_m0/write_req_reg_syn_12.clk
+capture edge                           10.000    r    13.232               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061         13.293               
+clock uncertainty                       0.100         13.393               
+clock pessimism                        -0.277         13.116               
+--------------------------------------------------------------------  ---------------
+Required                                              13.116               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.503               
+
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     Set Multicycle Path (Ignored)
+Constr         :     set_multicycle_path -setup 2 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+               :     set_multicycle_path -hold  1 -from [get_clocks {ext_mem_clk}] -to [get_clocks {sd_card_clk}]
+
+Statistics:
+	Setup Check    :              9   end points,               9   paths
+----------------------------------------------------------------------------------------------------
+
+
+Min Delay Paths
+----------------------------------------------------------------------------------------------------
+Begin Point         : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[6]_syn_4.clk(triggered by clock ext_mem_clk)
+End Point           : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1_reg[8]_syn_4.mi[0](triggered by clock sd_card_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x026y004z1                                        pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[6]_syn_4.q[0]
+net (fo=1)                                                            net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[8],  ../../al_ip/afifo_16_32_256.v(263)
+                                                                      pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1_reg[8]_syn_4.mi[0]
+reg                 x026y004z3                                        net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1[8],  ../../al_ip/afifo_16_32_256.v(264)
+
+
+Begin Point         : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[3]_syn_4.clk(triggered by clock ext_mem_clk)
+End Point           : frame_read_write_m0/frame_fifo_read_m0/add2_syn_56.mi[0](triggered by clock sd_card_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x026y002z2                                        pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[3]_syn_4.q[0]
+net (fo=1)                                                            net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[0],  ../../al_ip/afifo_16_32_256.v(263)
+                                                                      pin: frame_read_write_m0/frame_fifo_read_m0/add2_syn_56.mi[0]
+ADDER (reg)         x027y001z2                                        net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1[0],  ../../al_ip/afifo_16_32_256.v(264)
+
+
+Begin Point         : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.clk(triggered by clock ext_mem_clk)
+End Point           : frame_read_write_m0/frame_fifo_read_m0/add2_syn_56.mi[1](triggered by clock sd_card_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x026y002z1                                        pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.q[1]
+net (fo=1)                                                            net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[1],  ../../al_ip/afifo_16_32_256.v(263)
+                                                                      pin: frame_read_write_m0/frame_fifo_read_m0/add2_syn_56.mi[1]
+ADDER (reg)         x027y001z2                                        net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1[1],  ../../al_ip/afifo_16_32_256.v(264)
+
+
+Begin Point         : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[6]_syn_4.clk(triggered by clock ext_mem_clk)
+End Point           : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[6]_syn_4.mi[0](triggered by clock sd_card_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x026y004z1                                        pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[6]_syn_4.q[1]
+net (fo=1)                                                            net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[6],  ../../al_ip/afifo_16_32_256.v(263)
+                                                                      pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[6]_syn_4.mi[0]
+reg                 x026y006z1                                        net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1[6],  ../../al_ip/afifo_16_32_256.v(264)
+
+
+Begin Point         : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[3]_syn_4.clk(triggered by clock ext_mem_clk)
+End Point           : frame_read_write_m0/frame_fifo_read_m0/mux10_syn_82.mi[0](triggered by clock sd_card_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x026y002z2                                        pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[3]_syn_4.q[1]
+net (fo=1)                                                            net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[3],  ../../al_ip/afifo_16_32_256.v(263)
+                                                                      pin: frame_read_write_m0/frame_fifo_read_m0/mux10_syn_82.mi[0]
+reg                 x029y004z0                                        net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1[3],  ../../al_ip/afifo_16_32_256.v(264)
+
+
+Begin Point         : frame_read_write_m0/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[1]_syn_4.clk(triggered by clock ext_mem_clk)
+End Point           : frame_read_write_m0/frame_fifo_read_m0/rd_delay_reg[2]_syn_11.mi[0](triggered by clock sd_card_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x025y001z1                                        pin: frame_read_write_m0/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[1]_syn_4.q[0]
+net (fo=1)                                                            net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[2],  ../../al_ip/afifo_16_32_256.v(263)
+                                                                      pin: frame_read_write_m0/frame_fifo_read_m0/rd_delay_reg[2]_syn_11.mi[0]
+reg                 x027y002z3                                        net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1[2],  ../../al_ip/afifo_16_32_256.v(264)
+
+
+Begin Point         : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.clk(triggered by clock ext_mem_clk)
+End Point           : frame_read_write_m0/write_buf/sub0_syn_49.mi[0](triggered by clock sd_card_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x026y002z1                                        pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.q[0]
+net (fo=1)                                                            net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[4],  ../../al_ip/afifo_16_32_256.v(263)
+                                                                      pin: frame_read_write_m0/write_buf/sub0_syn_49.mi[0]
+ADDER (reg)         x028y002z2                                        net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1[4],  ../../al_ip/afifo_16_32_256.v(264)
+
+
+Begin Point         : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[5]_syn_4.clk(triggered by clock ext_mem_clk)
+End Point           : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1_reg[7]_syn_4.mi[0](triggered by clock sd_card_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x027y003z3                                        pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[5]_syn_4.q[0]
+net (fo=1)                                                            net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[7],  ../../al_ip/afifo_16_32_256.v(263)
+                                                                      pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1_reg[7]_syn_4.mi[0]
+reg                 x026y006z0                                        net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1[7],  ../../al_ip/afifo_16_32_256.v(264)
+
+
+Begin Point         : frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[5]_syn_4.clk(triggered by clock ext_mem_clk)
+End Point           : frame_read_write_m0/write_buf/sub0_syn_49.mi[1](triggered by clock sd_card_clk)
+Check Type          : hold
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+clk2q               x027y003z3                                        pin: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[5]_syn_4.q[1]
+net (fo=1)                                                            net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[5],  ../../al_ip/afifo_16_32_256.v(263)
+                                                                      pin: frame_read_write_m0/write_buf/sub0_syn_49.mi[1]
+ADDER (reg)         x028y002z2                                        net: frame_read_write_m0/write_buf/rd_to_wr_cross_inst/sync_r1[5],  ../../al_ip/afifo_16_32_256.v(264)
+
+
+
+
+
+

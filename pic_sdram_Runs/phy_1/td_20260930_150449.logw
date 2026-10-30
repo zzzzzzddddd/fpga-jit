@@ -1,0 +1,29 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = D:/TD APP/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     ¡ı—ß≥…
+   Run Date =   Wed Sep 30 15:04:49 2026
+
+   Run on =     LAPTOP-1CGSE8EP
+============================================================
+USR-8125 CRITICAL-WARNING: Rename_clock: cannot find target clock.
+USR-8159 CRITICAL-WARNING: Command rename_clock -name {audio_mclk} -source [get_ports {clk}] -master_clock {clk} [get_pins {u_audio_pll/pll_inst.clkc[2]}] in D:/C_1/C_1/top.sdc(27) fails.
+USR-8130 CRITICAL-WARNING: No clock match the pattern: audio_mclk.
+USR-8208 CRITICAL-WARNING: Clock group is empty.
+USR-8159 CRITICAL-WARNING: Command set_clock_groups -asynchronous -group [get_clocks {audio_mclk}] -group [get_clocks {video_clk} hdmi_5x_clk sd_card_clk ext_mem_clk] in D:/C_1/C_1/top.sdc(40) fails.
+USR-8125 CRITICAL-WARNING: Rename_clock: cannot find target clock.
+USR-8159 CRITICAL-WARNING: Command rename_clock -name {audio_mclk} -source [get_ports {clk}] -master_clock {clk} [get_pins {u_audio_pll/pll_inst.clkc[2]}] in D:/C_1/C_1/top.sdc(27) fails.
+USR-8130 CRITICAL-WARNING: No clock match the pattern: audio_mclk.
+USR-8208 CRITICAL-WARNING: Clock group is empty.
+USR-8159 CRITICAL-WARNING: Command set_clock_groups -asynchronous -group [get_clocks {audio_mclk}] -group [get_clocks {video_clk} hdmi_5x_clk sd_card_clk ext_mem_clk] in D:/C_1/C_1/top.sdc(40) fails.
+PHY-7002 CRITICAL-WARNING: Instance U3/sdram location (12, 12) is not honored. Cell's initial location is not legal at the beginning of ECO placement, and will be moved during placement. Please verify user location constraints through the adc file.
+
+USR-8125 CRITICAL-WARNING: Rename_clock: cannot find target clock.
+USR-8159 CRITICAL-WARNING: Command rename_clock -name {audio_mclk} -source [get_ports {clk}] -master_clock {clk} [get_pins {u_audio_pll/pll_inst.clkc[2]}] in D:/C_1/C_1/top.sdc(27) fails.
+USR-8130 CRITICAL-WARNING: No clock match the pattern: audio_mclk.
+USR-8208 CRITICAL-WARNING: Clock group is empty.
+USR-8159 CRITICAL-WARNING: Command set_clock_groups -asynchronous -group [get_clocks {audio_mclk}] -group [get_clocks {video_clk} hdmi_5x_clk sd_card_clk ext_mem_clk] in D:/C_1/C_1/top.sdc(40) fails.
+
+PHY-5079 CRITICAL-WARNING: Marked 1 clock net(s) utilize the local routing resources. Please check log message and the sinks of clock nets.

@@ -1,0 +1,116 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = D:/relate_to_study/TD/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     1
+   Run Date =   Sat Oct  3 16:57:31 2026
+
+   Run on =     LAPTOP-J0KR92HT
+============================================================
+HDL-5373 WARNING: identifier 'force_retry' is used before its declaration in ../../src/bmp_read.v(159)
+Copyright (c) 1998-2019 The OpenSSL Project.  All rights reserved.
+This product includes software developed by the OpenSSL Project
+for use in the OpenSSL Toolkit (http://www.openssl.org/)
+Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+All rights reserved.
+This product includes cryptographic software written by Eric Young (eay@cryptsoft.com)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in ../../src/sdram/enc_file/sdr_wrrd.enc.v(283)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in ../../src/sdram/enc_file/sdr_init_ref.enc.v(47)
+HDL-5373 WARNING: identifier 'file_idx_reg' is used before its declaration in ../../src/fat32_reader.v(409)
+HDL-5314 WARNING: net 'mem' does not have a driver in ../../src/hud/hud_rom_cjk.v(26)
+HDL-5314 WARNING: net 'mem' does not have a driver in ../../src/hud/hud_rom_sincos.v(13)
+HDL-5314 WARNING: net 'mem' does not have a driver in ../../src/hud/hud_rom_dial.v(12)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in ../../src/hdmi/hdmi_1_4b_transmitter_core_wrapper.enc.v(3307)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in ../../src/hdmi/hdmi_1_4b_transmitter_core_wrapper.enc.v(3318)
+HDL-5317 WARNING: input port 'dib[31]' is not connected on this instance in ../../al_ip/afifo_16_32_256.v(231)
+HDL-5007 WARNING: actual bit length 9 differs from formal bit length 10 for port 'rdusedw' in ../../src/frame_read_write.v(137)
+HDL-5317 WARNING: input port 'dib[31]' is not connected on this instance in ../../al_ip/afifo_32_16_256.v(231)
+HDL-5007 WARNING: actual bit length 9 differs from formal bit length 10 for port 'wrusedw' in ../../src/frame_read_write.v(190)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'read_addr_0' in ../../src/top.v(1271)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'read_addr_1' in ../../src/top.v(1272)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'read_addr_2' in ../../src/top.v(1273)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'read_addr_3' in ../../src/top.v(1274)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'read_len' in ../../src/top.v(1276)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'write_addr_0' in ../../src/top.v(1289)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'write_addr_1' in ../../src/top.v(1290)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'write_addr_2' in ../../src/top.v(1291)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'write_addr_3' in ../../src/top.v(1292)
+HDL-5007 WARNING: actual bit length 24 differs from formal bit length 21 for port 'write_len' in ../../src/top.v(1294)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in ../../src/sdram/enc_file/sdr_init_ref.enc.v(47)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in ../../src/sdram/enc_file/sdr_wrrd.enc.v(283)
+HDL-5317 WARNING: input port '**' is not connected on this instance in ../../src/sdram/enc_file/sdr_as_ram.enc.v(17)
+HDL-5317 WARNING: input port 'f_file_size[31]' is not connected on this instance in ../../src/top.v(649)
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+SYN-5013 WARNING: Undriven net: model "top" / net "U3/u2_ram/u2_wrrd/Sdr_init_ref_ba[1]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+		the net's pin: pin "i1[1]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+SYN-5013 WARNING: Undriven net: model "top" / net "U3/u2_ram/u2_wrrd/Sdr_init_ref_ba[0]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+		the net's pin: pin "i1[0]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0)
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-5011 WARNING: Undriven pin: model "top" / inst "frame_read_write_m0/read_buf/ram_inst/ramread0_syn_4" in ../../al_ip/afifo_32_16_256.v(822) / pin "bea[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "frame_read_write_m0/read_buf/ram_inst/ramread0_syn_4" in ../../al_ip/afifo_32_16_256.v(822) / pin "beb[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "addrb[8]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "addrb[7]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "addrb[6]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "addrb[5]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "addrb[4]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "addrb[3]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "addrb[2]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "addrb[1]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "addrb[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "bea[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "beb[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "ceb"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "clkb"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "dib[4]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "dib[3]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "dib[2]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "dib[1]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "dib[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "oceb"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "rstb"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_font/mux0_syn_1" in ../../src/hud/hud_rom_font.v(15) / pin "web"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_tr_l/ramread0_syn_4" in ../../src/hud/hud_trend.v(106) / pin "bea[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_hud/u_overlay/u_tr_l/ramread0_syn_4" in ../../src/hud/hud_trend.v(106) / pin "beb[0]"
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-6577 WARNING: The clock signal "U3/u2_ram/SDRAM_CLK" is added with the synthetic instruction (keep/mark_debug/dont_touch/max_fanout), which may create additional logic on this net
+SYN-6562 WARNING: The init value of "frame_read_write_m0/read_buf/ram_inst/ramread0_syn_4(../../al_ip/afifo_32_16_256.v(822))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "frame_read_write_m0/write_buf/ram_inst/ramread0_syn_4(../../al_ip/afifo_16_32_256.v(822))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_hdmi_core/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_497(../../src/hdmi/hdmi_1_4b_transmitter_core_wrapper.enc.v(0))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_hdmi_core/u_hdmi_tx_controller_wrapper/u_video_axi_stream_receiver/u_w24_d1024_fifo/u_logic_ramfifo_syn_353(../../src/hdmi/hdmi_1_4b_transmitter_core_wrapper.enc.v(0))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_hud/u_overlay/u_tr_l/ramread0_syn_4(../../src/hud/hud_trend.v(106))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_wav_loader/ramread0_syn_4(../../src/wav_loader.v(218))" will be ignored since gate eram_init is set to off
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[0]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[1]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[2]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[3]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[4]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[5]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[6]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[7]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[8]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[9]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[10]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[11]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[12]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[13]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[14]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[15]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[16]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[17]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[18]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[19]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[20]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[21]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[22]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[23]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[24]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[25]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[26]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[27]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[28]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[29]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[30]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "U3/u2_ram/u2_wrrd/Sdr_rd_dout_reg[31]" in ../../src/sdram/enc_file/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5025 WARNING: Using 0 for all undriven pins and nets

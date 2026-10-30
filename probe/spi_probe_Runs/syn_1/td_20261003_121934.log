@@ -1,0 +1,536 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = D:/relate_to_study/TD/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     1
+   Run Date =   Sat Oct  3 12:19:34 2026
+
+   Run on =     LAPTOP-J0KR92HT
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20BG256"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :            OPTION            |          IO          |   SETTING   
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  T3/R11/T10/P10/S11  |    gpio    
+ARC-1001 :             done             |         P13          |    gpio    
+ARC-1001 :           program_b          |          T2          |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |   C12/A15/C14/E14    |  dedicate  
+ARC-1001 : ------------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "open_project spi_probe.prj"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file ../../spi_probe_top.v
+HDL-1007 : analyze verilog file ../../../src/sd_card/spi_master.v
+HDL-1007 : analyze verilog file ../../../src/seg_scan.v
+PRJ-1401 : Successfully analyzed 3 source files.
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+RUN-1002 : start command "elaborate -top spi_probe_top"
+HDL-1007 : elaborate module spi_probe_top in ../../spi_probe_top.v(85)
+HDL-1007 : elaborate module spi_master in ../../../src/sd_card/spi_master.v(2)
+HDL-1007 : elaborate module seg_scan in ../../../src/seg_scan.v(15)
+HDL-1200 : Current top model is spi_probe_top
+HDL-1100 : Inferred 0 RAMs.
+RUN-1002 : start command "read_adc ../../fat32_probe.adc"
+RUN-1002 : start command "set_pin_assignment  clk   LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  rst_n   LOCATION = A2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  sd_dclk   LOCATION = A14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  sd_miso   LOCATION = B14; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  sd_mosi   LOCATION = A13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  sd_ncs   LOCATION = A12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  seg_data[0]   LOCATION = C15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_data[1]   LOCATION = C16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_data[2]   LOCATION = B6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_data[3]   LOCATION = A5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_data[4]   LOCATION = B5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_data[5]   LOCATION = A8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_data[6]   LOCATION = A7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_data[7]   LOCATION = A6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_sel[0]   LOCATION = F16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_sel[1]   LOCATION = E16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_sel[2]   LOCATION = E12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_sel[3]   LOCATION = E10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_sel[4]   LOCATION = C13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_sel[5]   LOCATION = F10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_sel[6]   LOCATION = E11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  seg_sel[7]   LOCATION = D11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1001 : Starting of IO setups legality check.
+RUN-1001 : Starting of IO vref setups legality check.
+RUN-1002 : start command "export_db spi_probe_elaborate.db"
+RUN-1001 : Exported flow parameters
+RUN-1001 : Exported /
+RUN-1001 : Exported libs
+RUN-1001 : Exported entities
+RUN-1001 : Exported ports
+RUN-1001 : Exported pins
+RUN-1001 : Exported instances
+RUN-1001 : Exported nets
+RUN-1001 : Exported buses
+RUN-1001 : Exported models
+RUN-1001 : Exported packer
+RUN-1001 : Exported congestions
+RUN-1001 : Exported violations
+RUN-1001 : Exported ATMR Setting
+RUN-1001 : Exported IO constraints
+RUN-1001 : Exported Inst constraints
+RUN-1001 : Exported ChipWatcher
+RUN-1002 : start command "commit_param -step rtl"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Rtl Property
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :         Parameters        |  Settings  |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :        fix_undriven       |     0      |        0         |        
+RUN-1001 :   gated_clock_conversion  |    off     |       off        |        
+RUN-1001 :         infer_fsm         |    auto    |       auto       |        
+RUN-1001 :         infer_gsr         |    off     |       off        |        
+RUN-1001 :         infer_rom         |     on     |        on        |        
+RUN-1001 :       keep_hierarchy      |    auto    |       auto       |        
+RUN-1001 :        merge_equal        |     on     |        on        |        
+RUN-1001 :      min_control_set      |     8      |        8         |        
+RUN-1001 :       min_ripple_len      |    auto    |       auto       |        
+RUN-1001 :          seq_syn          |     on     |        on        |        
+RUN-1001 : -------------------------------------------------------------------
+RUN-1002 : start command "insert_debugger"
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file D:/relate_to_study/TD/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.000266s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 91, reserved = 213, peak = 91;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 960, Total nets: 2532.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 0.032874s wall, 0.031250s user + 0.000000s system = 0.031250s CPU (95.1%); Memory(MB): used = 91, reserved = 213, peak = 91;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 215, Total nets: 1758.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model spi_probe_top
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.001839s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 91, reserved = 213, peak = 91;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 213, Total nets: 1633.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.001040s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 91, reserved = 213, peak = 91;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 207, Total nets: 1627.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1066 : Inferred FSM for state register 'phase_reg' in module 'spi_probe_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000           000001
+                   001           000010
+                   010           000100
+                   011           001000
+                   100           010000
+                   101           100000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'phase_reg' using encoding 'one_hot' in model 'spi_probe_top'
+SYN-1066 : Inferred FSM for state register 'u_spi/state_reg' in module 'spi_probe_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000           000001
+                   010           000010
+                   001           000100
+                   100           001000
+                   011           010000
+                   101           100000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_spi/state_reg' using encoding 'one_hot' in model 'spi_probe_top'
+SYN-1057 : Inferred 2 FSM(s)
+SYN-1032 : 1655/22 useful/useless nets, 195/0 useful/useless insts
+SYN-1021 : Optimized 1 onehot mux instances.
+SYN-1016 : Merged 64 instances.
+SYN-1016 : Merged 28 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 0.125552s wall, 0.125000s user + 0.000000s system = 0.125000s CPU (99.6%); Memory(MB): used = 96, reserved = 213, peak = 96;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 901, Total nets: 1050.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1021 : Optimized 88 onehot mux instances.
+SYN-1014 : Optimize round 1
+SYN-1044 : Optimized 24 inv instances.
+SYN-1017 : Remove 3 const input seq instances
+SYN-1019 : Optimized 17 mux instances.
+SYN-1020 : Optimized 8 distributor mux.
+SYN-1001 : Optimize 8 less-than instances
+SYN-1019 : Optimized 1 mux instances.
+SYN-1016 : Merged 7094 instances.
+SYN-1015 : Optimize round 1, 11278 better
+SYN-1014 : Optimize round 2
+SYN-1019 : Optimized 1 mux instances.
+SYN-1019 : Optimized 70 mux instances.
+SYN-1016 : Merged 2 instances.
+SYN-1015 : Optimize round 2, 93 better
+SYN-3010 : Optimized 1 DFF(s)
+SYN-1014 : Optimize round 1
+SYN-1020 : Optimized 89 distributor mux.
+SYN-1016 : Merged 492 instances.
+SYN-1015 : Optimize round 1, 591 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 2 inv instances.
+SYN-1015 : Optimize round 2, 2 better
+SYN-1014 : Optimize round 3
+SYN-1015 : Optimize round 3, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 0.787376s wall, 0.781250s user + 0.015625s system = 0.796875s CPU (101.2%); Memory(MB): used = 122, reserved = 119, peak = 149;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 818, Total nets: 958.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.000085s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 122, reserved = 119, peak = 149;
+
+SYN-1079 : finish stage Check Design. Total instances: 818, Total nets: 958.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 0.949571s wall, 0.937500s user + 0.015625s system = 0.953125s CPU (100.4%); Memory(MB): used = 122, reserved = 119, peak = 149;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 818, Total nets: 958.
+
+RUN-1002 : start command "report_area -file spi_probe_rtl.area"
+RUN-1001 : standard
+***Report Model: spi_probe_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        22
+  #input                    3
+  #output                  19
+  #inout                    0
+
+Gate Statistics
+#Basic gates              389
+  #and                     13
+  #nand                     0
+  #or                      17
+  #nor                      0
+  #xor                      0
+  #xnor                     0
+  #buf                      0
+  #not                     52
+  #bufif1                   0
+  #MX21                    61
+  #FADD                     0
+  #DFF                    246
+  #LATCH                    0
+#MACRO_ADD                 26
+#MACRO_EQ                  13
+#MACRO_MUX                388
+
+RUN-1002 : start command "export_db spi_probe_rtl.db"
+RUN-1001 : Exported flow parameters
+RUN-1001 : Exported /
+RUN-1001 : Exported libs
+RUN-1001 : Exported entities
+RUN-1001 : Exported ports
+RUN-1001 : Exported pins
+RUN-1001 : Exported instances
+RUN-1001 : Exported nets
+RUN-1001 : Exported buses
+RUN-1001 : Exported models
+RUN-1001 : Exported packer
+RUN-1001 : Exported congestions
+RUN-1001 : Exported violations
+RUN-1001 : Exported ATMR Setting
+RUN-1001 : Exported IO constraints
+RUN-1001 : Exported Inst constraints
+RUN-1001 : Exported ChipWatcher
+RUN-1002 : start command "commit_param -step gate"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Gate Property
+RUN-1001 : -----------------------------------------------------------
+RUN-1001 :     Parameters    |  Settings  |  Default Values  |  Note  
+RUN-1001 : -----------------------------------------------------------
+RUN-1001 :     eram_init     |    off     |       off        |        
+RUN-1001 :      map_mode     |    auto    |       auto       |        
+RUN-1001 :    pack_effort    |   medium   |      medium      |        
+RUN-1001 :   pack_seq_in_io  |    auto    |       auto       |        
+RUN-1001 :       report      |  standard  |     standard     |        
+RUN-1001 : -----------------------------------------------------------
+RUN-1002 : start command "optimize_gate -packarea spi_probe_gate.area"
+RUN-1001 : Open license file D:/relate_to_study/TD/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.008478s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (184.3%); Memory(MB): used = 118, reserved = 252, peak = 149;
+
+SYN-1079 : finish stage Map Reg. Total instances: 818, Total nets: 958.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 22 IOs to PADs of model 'spi_probe_top'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.019125s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (81.7%); Memory(MB): used = 119, reserved = 252, peak = 149;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module spi_probe_top"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-2571 : Optimize after map_dsp, round 1, 0 better
+SYN-1001 : Throwback 17 control mux instances
+SYN-1001 : Generate 1 bigger adders
+SYN-1001 : Optimize 1 adders
+SYN-1001 : Convert 3 adder
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 21 instances.
+SYN-2501 : Optimize round 1, 98 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 0 better
+SYN-2501 : Map 23 macro adder(s)
+SYN-1019 : Optimized 467 mux instances.
+SYN-1016 : Merged 178 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 0.075102s wall, 0.078125s user + 0.000000s system = 0.078125s CPU (104.0%); Memory(MB): used = 123, reserved = 258, peak = 149;
+
+SYN-1079 : finish stage Map Macro. Total instances: 1451, Total nets: 1579.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-2581 : Mapping with K=5, #lut = 332 (3.37), #lev = 4 (2.43), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=5, #lut = 331 (3.21), #lev = 5 (2.50), #crit_level = 0
+SYN-3001 : Logic optimization opt = 0.08 sec, map = 0.03 sec, post map opt = 0.08 sec.
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 0.211219s wall, 0.203125s user + 0.000000s system = 0.203125s CPU (96.2%); Memory(MB): used = 134, reserved = 281, peak = 149;
+
+SYN-1001 : Packing model "spi_probe_top" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 230 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 7 carry chain into lslice
+SYN-4007 : Packing 129 adder to BLE ...
+SYN-4008 : Packed 129 adder and 0 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |        11787                |
+|     Setup TNS             |            0                |
+|     Num of violated S-EP  |            0                |
+|     Hold WNS              |          932                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |          230                |
+|     #luts                 |          331                |
+|     #lut1                 |            2                |
+|     #lut1(~A)             |            2                |
+|     #slices               |          104                |
+|     slices percentage     |        1.06%                |
+|     #RAMs                 |            0                |
+|     #DSPs                 |            0                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |           16                |
+|     #insts in MACRO       |          104                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |            0                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        24.14                |
+| dff(single fanout)->dff   |            0                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total                 |            0                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 800ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+--------------------------------------------------------------------------------------------
+  Clock        |  Period            |  0   |  1   |  2   |  3   |  4   |  5   |  6   |  7
+--------------------------------------------------------------------------------------------
+  DeriveClock  |  20.000ns (50MHz)  |  79  |  42  |  24  |  87  |  88  |  25  |  58  |  65
+--------------------------------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(468 paths analyzed)
+
+Hierarchical Rent Exponent Report
++--------------------------------------------------------+
+|Inst     |Model  |Rent     |Cell     |Pin     |Term     |
++--------------------------------------------------------+
++--------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+RUN-1002 : start command "report_area -file spi_probe_gate.area"
+RUN-1001 : standard
+***Report Model: spi_probe_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        22   out of    188   11.70%
+  #input                    3
+  #output                  19
+  #inout                    0
+
+LUT Statistics
+#Total_luts               331
+  #lut4                   282
+  #lut5                    49
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                      539   out of  19600    2.75%
+#reg                      230   out of  19600    1.17%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                       22   out of    188   11.70%
+  #ireg                     0
+  #oreg                    16
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 0.475166s wall, 0.406250s user + 0.062500s system = 0.468750s CPU (98.6%); Memory(MB): used = 135, reserved = 281, peak = 149;
+
+RUN-1002 : start command "legalize_phy_inst"
+SYN-1001 : Stage 3 | Legalize Phy Inst
+SYN-1011 : Flatten model spi_probe_top
+SYN-1001 : End Stage 3 | Legalize Phy Inst; Time: 0.000991s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (n/a%); Memory(MB): used = 135, reserved = 281, peak = 149;
+
+RUN-1002 : start command "update_timing"
+RUN-1002 : start command "start_timer"
+RUN-1002 : start command "report_timing_status -file spi_probe_gate.ts"
+RUN-1002 : start command "report_timing_summary -file spi_probe_gate.timing"
+RUN-1002 : start command "flow_status -file flow.status"
+Location         : D:\fpga_anlu\C_1\C_1\probe\spi_probe_Runs\syn_1
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : spi_probe_top
+Device           : EG4S20BG256
+Speed            : NA
+
+Timing Mode      : basic
+Setup            : WNS 11787ps  TNS        0ps  NUM_FEPS     0
+Hold             : WNS   932ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+RUN-1001 : Flow Statistics:
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :      command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :   import_device  |    1     |   0s(0%)    |     0(0%)     |        83         |        83         
+RUN-1001 :   optimize_gate  |    1     |   0s(0%)    |     0(0%)     |        135        |        149        
+RUN-1001 :   optimize_rtl   |    1     |   0s(0%)    |     0(0%)     |        122        |        149        
+RUN-1001 :     read_adc     |    1     |   0s(0%)    |     0(0%)     |        89         |        89         
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :       total      |    4     |     0s      |       0       |        135        |        149        
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1002 : start command "export_db spi_probe_gate.db"
+RUN-1001 : Exported flow parameters
+RUN-1001 : Exported /
+RUN-1001 : Exported libs
+RUN-1001 : Exported entities
+RUN-1001 : Exported ports
+RUN-1001 : Exported pins
+RUN-1001 : Exported instances
+RUN-1001 : Exported nets
+RUN-1001 : Exported buses
+RUN-1001 : Exported models
+RUN-1001 : Exported packer
+RUN-1001 : Exported congestions
+RUN-1001 : Exported violations
+RUN-1001 : Exported ATMR Setting
+RUN-1001 : Exported IO constraints
+RUN-1001 : Exported Inst constraints
+RUN-1001 : Exported ChipWatcher
+RUN-1002 : start command "export_flow_status -s read_design -e opt_gate"
+RUN-1002 : start command "flow_status"
+
+Location         : D:\fpga_anlu\C_1\C_1\probe\spi_probe_Runs\syn_1
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : spi_probe_top
+Device           : EG4S20BG256
+Speed            : NA
+
+Timing Mode      : basic
+Setup            : WNS 11787ps  TNS        0ps  NUM_FEPS     0
+Hold             : WNS   932ps  TNS        0ps  NUM_FEPS     0
+
+RUN-1001 : Flow Statistics:
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :      command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :   import_device  |    1     |   0s(0%)    |     0(0%)     |        83         |        83         
+RUN-1001 :   optimize_gate  |    1     |   0s(0%)    |     0(0%)     |        135        |        149        
+RUN-1001 :   optimize_rtl   |    1     |   0s(0%)    |     0(0%)     |        122        |        149        
+RUN-1001 :     read_adc     |    1     |   0s(0%)    |     0(0%)     |        89         |        89         
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :       total      |    4     |     0s      |       0       |        135        |        149        
+RUN-1001 : --------------------------------------------------------------------------------------------------
+

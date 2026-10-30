@@ -1,0 +1,438 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+r"""
+watermark_off.py -- 去掉 sd_assets/0N.png 右下角的「豆包AI生成」水印
+
+============================================================================
+【为什么是"补"而不是"涂"】
+============================================================================
+水印压在【厂房地面】上，而地面有亮度渐变和颗粒质感。
+直接填一块纯色（哪怕取的是周边均值）在大屏上会看到一块"补丁"。
+这里提供两种"搬运"方案，默认用竖直搬运（--mode v）：
+
+  ★ 竖直搬运（默认，remove_watermark_v）★
+      源 = 【同一列】正上方那块干净地面，下移一整个框高（24 像素）。
+      再做逐列 DC 校正，让它跟着目标位置的上下渐变走。
+      · 同一列 ⇒ 横向光照梯度天然对齐，不用额外处理
+      · 竖着长的特征（这几张图地面那块竖向反光）会被原样续上
+      · 纹理是真的（不是平滑出来的），1:1 下看不出补过
+
+  · 水平搬运（remove_watermark，--mode h）·
+      源 = 左边一块干净地面，只移植它的【高频】，
+      低频用目标位置自己的上下插值。纹理细腻但会把 30~80 像素尺度的
+      结构一起扣掉（竖反光会被抹平一截），所以不作默认。
+
+两条路都试过并在 1:1 下对过（对比拼图见 tools/wm_compare.png，
+每行 左=原图 中=竖直搬运 右=水平搬运，三行分别是 01/04/06）：
+竖直搬运在 01 那种颗粒地面上明显更真，04/06 的竖反光也能续上。
+
+【实际改动的范围】
+    只有 x 554..634, y 453..474 这 81x22 个像素会被写。
+    --apply 会逐像素自检"框外改动数"，不为 0 就报错退出。
+    另有一个独立复验脚本口径：解出改前/改后两张 PNG 逐像素比，
+    确认差异【全部】落在框内（见会话记录里的 _wm_verify）。
+
+============================================================================
+【为什么改 PNG 而不是改卡上的 BMP】
+============================================================================
+真素材是 sd_assets/0N.png（见 tools/real_assets.py 文件头）。
+BMP 是它生成的产物 —— 只改 BMP 的话，下次重跑 real_assets.py 水印就回来了。
+所以这里只动 PNG，改完重跑 real_assets.py 重新生成 BMP。
+
+★ PNG 重编码是【无损】的：像素只要没被改动，解出来就和原来一模一样，
+  只是压缩后的字节流不同。所以"其他东西不要动"这条是成立的。★
+
+用法
+----
+    python tools/watermark_off.py --preview          # 把右下角放大存出来看
+    python tools/watermark_off.py --preview --box 560,440,640,480
+    python tools/watermark_off.py --apply            # 对六张源图执行去除
+
+纯 Python 3，零第三方依赖。
+"""
+
+import argparse
+import os
+import struct
+import sys
+import zlib
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except AttributeError:
+    pass
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+ASSETS = os.path.join(ROOT, "sd_assets")
+
+N_FILES = 6
+
+# ---------------------------------------------------------------------------
+# ★ 水印框 ★
+#   坐标是【图像坐标】：左上为 (0,0)，x 向右、y 向下。
+#
+#   ★ 2026-10-14 换卡后重新量过 ★
+#     旧值 (554, 453, 634, 474) 是在【上一批实景照片】上量的：左/上两条边
+#     正好卡在笔画外沿，没留抗锯齿余量。这批新图是纯色渐变底，
+#     用"逐列竖向中值当背景、看残差"量出来笔画是 x 554..631 / y 453..471
+#     （抗锯齿外沿再宽 1~2px），所以左、上各往外放 3px、右、下放 4px。
+#     水印位置本身两批图是一样的（左上角都落在 554,453）。
+# ---------------------------------------------------------------------------
+WM_BOX = (551, 450, 635, 475)     # (x0, y0, x1, y1) 闭区间
+
+# 上下各取多少行做参考（取均值，抗噪）
+REF_ROWS = 4
+
+# 上下参考的横向低通半径（消掉"逐列独立插值"产生的纵向条纹）
+SMOOTH = 5
+
+# 源行横向窗口半径：算"源的低频"用，越大扣掉的结构越多、留下的颗粒越细
+WINDOW = 9
+
+
+# ---------------------------------------------------------------------------
+# PNG 解码 / 编码（与 real_assets.py 同一套写法，只支持 8bit RGB 非交错）
+# ---------------------------------------------------------------------------
+def decode_png_rgb(path):
+    """返回 (w, h, rows)，rows[y] 是自上而下第 y 行的 RGB 字节串（w*3 字节）。"""
+    d = open(path, "rb").read()
+    if d[:8] != b"\x89PNG\r\n\x1a\n":
+        raise ValueError("不是 PNG")
+    w, h, bd, ct, cm, fm, il = struct.unpack_from(">IIBBBBB", d, 16)
+    if (bd, ct, il) != (8, 2, 0):
+        raise ValueError("只支持 8bit/RGB/非交错，本文件是 bd=%d ct=%d il=%d"
+                         % (bd, ct, il))
+    idat = bytearray()
+    pos = 8
+    while pos + 8 <= len(d):
+        ln, = struct.unpack_from(">I", d, pos)
+        tag = d[pos + 4:pos + 8]
+        if tag == b"IDAT":
+            idat += d[pos + 8:pos + 8 + ln]
+        elif tag == b"IEND":
+            break
+        pos += 12 + ln
+    raw = zlib.decompress(bytes(idat))
+
+    stride = w * 3
+    rows = []
+    prev = bytearray(stride)
+    p = 0
+    for _ in range(h):
+        ft = raw[p]
+        p += 1
+        line = bytearray(raw[p:p + stride])
+        p += stride
+        if ft == 0:
+            pass
+        elif ft == 1:
+            for i in range(3, stride):
+                line[i] = (line[i] + line[i - 3]) & 0xFF
+        elif ft == 2:
+            for i in range(stride):
+                line[i] = (line[i] + prev[i]) & 0xFF
+        elif ft == 3:
+            for i in range(stride):
+                a = line[i - 3] if i >= 3 else 0
+                line[i] = (line[i] + ((a + prev[i]) >> 1)) & 0xFF
+        elif ft == 4:
+            for i in range(stride):
+                a = line[i - 3] if i >= 3 else 0
+                b = prev[i]
+                c = prev[i - 3] if i >= 3 else 0
+                pp = a + b - c
+                pa, pb, pc = abs(pp - a), abs(pp - b), abs(pp - c)
+                pr = a if (pa <= pb and pa <= pc) else (b if pb <= pc else c)
+                line[i] = (line[i] + pr) & 0xFF
+        else:
+            raise ValueError("未知滤波器类型 %d" % ft)
+        rows.append(bytes(line))
+        prev = line
+    return w, h, rows
+
+
+def encode_png_rgb(path, w, h, rows):
+    """写成 8bit RGB 非交错 PNG，每行用 filter 0。无损。"""
+    def chunk(tag, body):
+        return (struct.pack(">I", len(body)) + tag + body
+                + struct.pack(">I", zlib.crc32(tag + body) & 0xFFFFFFFF))
+
+    raw = bytearray()
+    for y in range(h):
+        raw += b"\x00"                       # filter type 0 (None)
+        raw += rows[y]
+    out = (b"\x89PNG\r\n\x1a\n"
+           + chunk(b"IHDR", struct.pack(">IIBBBBB", w, h, 8, 2, 0, 0, 0))
+           + chunk(b"IDAT", zlib.compress(bytes(raw), 9))
+           + chunk(b"IEND", b""))
+    with open(path, "wb") as f:
+        f.write(out)
+
+
+# ---------------------------------------------------------------------------
+# 预览：把一块区域放大成 PNG，方便逐像素量水印框
+# ---------------------------------------------------------------------------
+def make_preview(src, dst, box, scale):
+    w, h, rows = decode_png_rgb(src)
+    x0, y0, x1, y1 = box
+    x0, y0 = max(0, x0), max(0, y0)
+    x1, y1 = min(w - 1, x1), min(h - 1, y1)
+    pw, ph = (x1 - x0 + 1) * scale, (y1 - y0 + 1) * scale
+    out = []
+    for yy in range(y0, y1 + 1):
+        line = rows[yy]
+        big = bytearray()
+        for xx in range(x0, x1 + 1):
+            i = xx * 3
+            big += bytes((line[i], line[i + 1], line[i + 2])) * scale
+        for _ in range(scale):
+            out.append(bytes(big))
+    encode_png_rgb(dst, pw, ph, out)
+    print("预览: %s  (%d,%d)-(%d,%d) x%d -> %dx%d"
+          % (os.path.relpath(dst, ROOT), x0, y0, x1, y1, scale, pw, ph))
+
+
+# ---------------------------------------------------------------------------
+# 去除：纹理搬运（低频对齐 + 高频移植）
+#
+# 【为什么不直接纵向插值】
+#   试过了，出来是一块平滑"补丁"，而且有明显的**纵向条纹**：
+#   逐列独立插值时，相邻列的上下参考值不同 ⇒ 列和列之间出现台阶，
+#   81 列就是 81 条竖线。人眼对这种规则条纹极其敏感。
+#   而且把颗粒感全抹掉了，和周围的混凝土地面一比就是个"磨皮块"。
+#
+# 【这一版怎么做】
+#   把结果拆成低频 + 高频两部分，各用各自的来源：
+#
+#     低频 base(x,y)：用【目标位置自己】的上下参考做纵向线性插值
+#                     ⇒ 亮度和周围地面严丝合缝（地面的光照渐变被保住）
+#                     ⇒ 上下参考先做横向低通 ⇒ 列间不再有台阶，条纹消失
+#     高频 ac(x,y)  ：从【旁边一块干净地面】搬过来，
+#                     ac = 源像素 - 源行在该列的横向窗口均值
+#                     ⇒ 只搬颗粒质感，不搬它的明暗
+#
+#     结果 = base + ac
+#
+#   ★ 只做水平位移、不上下位移 ★
+#     地面的明暗主要在纵向渐变，同一行的左右两块亮度接近；
+#     上下搬会把远处的亮度差带进来。
+# ===========================================================================
+def remove_watermark(rows, w, h, box, ref=REF_ROWS, dx=None, gap=3,
+                     win=WINDOW, smooth=SMOOTH):
+    x0, y0, x1, y1 = box
+    bw = x1 - x0 + 1
+    if dx is None:
+        dx = -(bw + gap)                       # 源块 = 目标块往左挪一整个框 + 缝
+    sx0, sx1 = x0 + dx, x1 + dx
+    if sx0 < 0 or sx1 >= w:
+        raise ValueError("水平位移 %d 出界：源 x=%d..%d，图宽 %d" % (dx, sx0, sx1, w))
+    if y0 - ref < 0 or y1 + ref >= h:
+        raise ValueError("框上下留不出 %d 行参考：y0=%d y1=%d h=%d" % (ref, y0, y1, h))
+
+    def col_ref(ya, yb):
+        """框外某一带的逐列均值，再做横向低通（消掉列间跳变）。"""
+        v = [[0.0, 0.0, 0.0] for _ in range(w)]
+        for y in range(ya, yb + 1):
+            li = rows[y]
+            for x in range(w):
+                i = x * 3
+                v[x][0] += li[i]
+                v[x][1] += li[i + 1]
+                v[x][2] += li[i + 2]
+        n = float(yb - ya + 1)
+        for x in range(w):
+            for c in range(3):
+                v[x][c] /= n
+        sm = [[0.0, 0.0, 0.0] for _ in range(w)]
+        for x in range(w):
+            a, b = max(0, x - smooth), min(w - 1, x + smooth)
+            for c in range(3):
+                s = 0.0
+                for k in range(a, b + 1):
+                    s += v[k][c]
+                sm[x][c] = s / (b - a + 1)
+        return sm
+
+    top = col_ref(y0 - ref, y0 - 1)
+    bot = col_ref(y1 + 1, y1 + ref)
+    span = float(y1 - y0 + 2)                  # 上参考最后一行 -> 下参考第一行
+
+    buf = [bytearray(r) for r in rows]
+    touched = 0
+    for y in range(y0, y1 + 1):   # noqa: C901
+        f = (y - (y0 - 1)) / span              # 0..1
+        src = rows[y]                          # ★ 源就是同一行 ★ 只做水平位移
+        for k in range(x1 - x0 + 1):
+            x = x0 + k
+            sx = sx0 + k
+            si = sx * 3
+            # 源行在该列的横向窗口均值 = 它的"低频"（含横向结构，要扣掉）
+            # ★★ 窗口绝对不能伸进水印区（x >= x0）★★
+            #   源块紧贴水印左边，±win 的窗口右端会越过 x0 扫到【还没擦掉】
+            #   的水印笔画（那是亮白像素）⇒ 该列的"源低频"被抬高 ⇒
+            #   ac 变负 ⇒ 补出来一条**细的暗竖纹/亮竖纹**。
+            #   第一版就栽在这里，在 02..06 上都能看到一条竖线。
+            #   修法：右端一旦碰到 x0，把整个窗口【等宽左移】，别只是截断 ——
+            #   截断会让窗口均值偏向一侧，同样产生列间台阶。
+            a, b = max(0, sx - win), min(w - 1, sx + win)
+            if b >= x0:
+                b = x0 - 1
+                a = max(0, b - 2 * win)
+            c0 = c1 = c2 = 0
+            for kk in range(a, b + 1):
+                j = kk * 3
+                c0 += src[j]; c1 += src[j + 1]; c2 += src[j + 2]
+            cnt = float(b - a + 1)
+            ac = (src[si] - c0 / cnt,
+                  src[si + 1] - c1 / cnt,
+                  src[si + 2] - c2 / cnt)
+            i = x * 3
+            for c in range(3):
+                base = top[x][c] * (1 - f) + bot[x][c] * f
+                v = int(round(base + ac[c]))
+                buf[y][i + c] = 0 if v < 0 else (255 if v > 255 else v)
+            touched += 1
+    return [bytes(r) for r in buf], touched
+
+
+# ---------------------------------------------------------------------------
+# 竖直搬运版：源 = 【同一列】正上方，下移一整个框高
+#
+# 【为什么还要有这一版】
+#   水平搬运（上面那个）在 fine texture 上表现好，但它把源块的"低频"整个扣掉了
+#   ——包括 30~80 像素尺度的结构。而这几张图的地面有一块**竖向长条反光**，
+#   竖直方向刚好穿过水印框。水平搬运会把框内那截反光抹平，
+#   于是反光看着"断了一截"（04 / 06 上很明显）。
+#
+#   竖向特征应该用【竖向位移】来补：把框正上方那块（同样宽的干净地面）
+#   整体下移一个框高。特征会被原样续上，纹理也是真的。
+#
+#   ★ 仍然要做逐列 DC 校正 ★
+#     源比目标高 22 行，地面在这 22 行里有几级的亮度差；
+#     用"目标位置上下带插值出的亮度"减去"源行带的亮度"作为偏移量补回去，
+#     这样既保留源的细节、又跟着目标的纵向渐变走。
+#   ★ 只做竖直位移、同一列 ★ ⇒ 横向光照梯度天然对齐，不用额外处理。
+# ---------------------------------------------------------------------------
+def remove_watermark_v(rows, w, h, box, ref=REF_ROWS, dy=None, gap=3, smooth=SMOOTH):
+    x0, y0, x1, y1 = box
+    bh = y1 - y0 + 1
+    if dy is None:
+        dy = -(bh + gap)
+    sy0, sy1 = y0 + dy, y1 + dy
+    if sy0 < 0:
+        raise ValueError("竖直位移 %d 出界：源 y=%d..%d" % (dy, sy0, sy1))
+    if y0 - ref < 0 or y1 + ref >= h:
+        raise ValueError("框上下留不出 %d 行参考" % ref)
+
+    def col_ref(ya, yb):
+        v = [[0.0, 0.0, 0.0] for _ in range(w)]
+        for y in range(ya, yb + 1):
+            li = rows[y]
+            for x in range(w):
+                i = x * 3
+                v[x][0] += li[i]; v[x][1] += li[i + 1]; v[x][2] += li[i + 2]
+        n = float(yb - ya + 1)
+        for x in range(w):
+            for c in range(3):
+                v[x][c] /= n
+        sm = [[0.0, 0.0, 0.0] for _ in range(w)]
+        for x in range(w):
+            a, b = max(0, x - smooth), min(w - 1, x + smooth)
+            for c in range(3):
+                s = 0.0
+                for k in range(a, b + 1):
+                    s += v[k][c]
+                sm[x][c] = s / (b - a + 1)
+        return sm
+
+    top = col_ref(y0 - ref, y0 - 1)
+    bot = col_ref(y1 + 1, y1 + ref)
+    span = float(y1 - y0 + 2)
+
+    # 源行带在每一列的平均色（作为 DC 基准）
+    src = [[0.0, 0.0, 0.0] for _ in range(w)]
+    for y in range(sy0, sy1 + 1):
+        li = rows[y]
+        for x in range(w):
+            i = x * 3
+            src[x][0] += li[i]; src[x][1] += li[i + 1]; src[x][2] += li[i + 2]
+    for x in range(w):
+        for c in range(3):
+            src[x][c] /= float(sy1 - sy0 + 1)
+
+    buf = [bytearray(r) for r in rows]
+    touched = 0
+    for y in range(y0, y1 + 1):
+        f = (y - (y0 - 1)) / span
+        sli = rows[y + dy]
+        for x in range(x0, x1 + 1):
+            i = x * 3
+            for c in range(3):
+                base = top[x][c] * (1 - f) + bot[x][c] * f
+                v = int(round(sli[i + c] + (base - src[x][c])))
+                buf[y][i + c] = 0 if v < 0 else (255 if v > 255 else v)
+            touched += 1
+    return [bytes(r) for r in buf], touched
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--preview", action="store_true")
+    ap.add_argument("--box", default=None, help="预览区域 x0,y0,x1,y1")
+    ap.add_argument("--scale", type=int, default=6)
+    ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--mode", default="v", choices=("v", "h"),
+                    help="v=竖直搬运（默认，保纹理）  h=水平搬运")
+    ap.add_argument("--files", default=None, help="只处理这些编号，如 01,03")
+    args = ap.parse_args()
+
+    if args.preview:
+        if args.box:
+            box = tuple(int(v) for v in args.box.split(","))
+        else:
+            box = (520, 420, 639, 479)
+        make_preview(os.path.join(ASSETS, "01.png"),
+                     os.path.join(HERE, "_wm_preview.png"), box, args.scale)
+        return 0
+
+    if args.apply:
+        want = None
+        if args.files:
+            want = {int(v) for v in args.files.split(",")}
+        for n in range(1, N_FILES + 1):
+            if want and n not in want:
+                continue  # noqa: E501
+            path = os.path.join(ASSETS, "%02d.png" % n)
+            w, h, rows = decode_png_rgb(path)
+            before = os.path.getsize(path)
+            fn = remove_watermark_v if args.mode == "v" else remove_watermark
+            new_rows, touched = fn(rows, w, h, WM_BOX)
+            # 自检：只允许框内像素被改
+            diff_outside = 0
+            for y in range(h):
+                if y < WM_BOX[1] or y > WM_BOX[3]:
+                    if new_rows[y] != rows[y]:
+                        diff_outside += 1
+                else:
+                    o, nw = rows[y], new_rows[y]
+                    for x in range(w):
+                        if x < WM_BOX[0] or x > WM_BOX[2]:
+                            if o[x * 3:x * 3 + 3] != nw[x * 3:x * 3 + 3]:
+                                diff_outside += 1
+            encode_png_rgb(path, w, h, new_rows)
+            after = os.path.getsize(path)
+            print("%02d.png  框内改 %d 像素  框外改动 %d 处  文件 %d -> %d 字节"
+                  % (n, touched, diff_outside, before, after))
+            if diff_outside:
+                print("   !! 框外被改了，停下")
+                return 1
+        print("\n完成。下一步：python tools/real_assets.py   重新生成 BMP")
+        return 0
+
+    ap.print_help()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

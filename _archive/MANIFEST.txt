@@ -1,0 +1,40 @@
+﻿_c1.txt  ->  _archive\scratch\_c1.txt
+_c2.txt  ->  _archive\scratch\_c2.txt
+_c3.txt  ->  _archive\scratch\_c3.txt
+_c4.txt  ->  _archive\scratch\_c4.txt
+_chk_implicit.txt  ->  _archive\scratch\_chk_implicit.txt
+_chk_keywords.txt  ->  _archive\scratch\_chk_keywords.txt
+_chk_ports.txt  ->  _archive\scratch\_chk_ports.txt
+_phy_out.txt  ->  _archive\scratch\_phy_out.txt
+_phy_out2.txt  ->  _archive\scratch\_phy_out2.txt
+_syn_out.txt  ->  _archive\scratch\_syn_out.txt
+_wavchk.py  ->  _archive\scratch\_wavchk.py
+01_noise_check.png  ->  _archive\previews\01_noise_check.png
+check01.png  ->  _archive\previews\check01.png
+check06.png  ->  _archive\previews\check06.png
+check_3.png  ->  _archive\previews\check_3.png
+check_sd_assets_img0.png  ->  _archive\previews\check_sd_assets_img0.png
+hudp0.png  ->  _archive\previews\hudp0.png
+img0.png  ->  _archive\previews\img0.png
+real_sheet.png  ->  _archive\previews\real_sheet.png
+sheet.png  ->  _archive\previews\sheet.png
+_wm_after.png  ->  _archive\previews\_wm_after.png
+_wm_corner_new.png  ->  _archive\previews\_wm_corner_new.png
+_wm_zoom.png  ->  _archive\previews\_wm_zoom.png
+pic_sdram.al.unexcl.bak  ->  _archive\pic_sdram.al.unexcl.bak
+C  ->  _archive\C_snapshot_20260910
+_tmp_oldpng  ->  _archive\_tmp_oldpng
+noise_look  ->  _archive\noise_look
+src\color_bar.v.bak  ->  _archive\src_bak\color_bar.v.bak
+src\seg_decoder.v.bak  ->  _archive\src_bak\seg_decoder.v.bak
+src\seg_scan.v.bak  ->  _archive\src_bak\seg_scan.v.bak
+src\video_define.v.bak  ->  _archive\src_bak\video_define.v.bak
+src\sd_card\sd_card_cmd.v.bak  ->  _archive\src_bak\sd_card\sd_card_cmd.v.bak
+src\sd_card\sd_card_sec_read_write.v.bak  ->  _archive\src_bak\sd_card\sd_card_sec_read_write.v.bak
+src\sd_card\sd_card_top.v.bak  ->  _archive\src_bak\sd_card\sd_card_top.v.bak
+src\sd_card\spi_master.v.bak  ->  _archive\src_bak\sd_card\spi_master.v.bak
+tools\_selftest\watermark_off.py.bak  ->  _archive\tools_bak\watermark_off.py.bak
+
+=== 第二次整理 2026-10-30 ===
+probe\hello_probe_Runs  (空构建目录，已删除)
+pic_sdram_Runs\best_result\sweep_s*.bit (20 个)  ->  pic_sdram_Runs\best_result\sweep_candidates\

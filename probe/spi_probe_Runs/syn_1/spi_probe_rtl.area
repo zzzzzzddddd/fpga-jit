@@ -1,0 +1,36 @@
+standard
+***Report Model: spi_probe_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        22
+  #input                    3
+  #output                  19
+  #inout                    0
+
+Gate Statistics
+#Basic gates             1467
+  #and                    543
+  #nand                     0
+  #or                     456
+  #nor                      0
+  #xor                      0
+  #xnor                     0
+  #buf                      0
+  #not                     68
+  #bufif1                   0
+  #MX21                   137
+  #FADD                     0
+  #DFF                    263
+  #LATCH                    0
+#MACRO_ADD                 35
+#MACRO_EQ                  16
+#MACRO_MUX                436
+
+Report Hierarchy Area:
++----------------------------------------------------+
+|Instance     |Module        |gates  |seq    |macros |
++----------------------------------------------------+
+|top          |spi_probe_top |1204   |263    |51     |
+|  u_seg_scan |seg_scan      |46     |34     |11     |
+|  u_spi      |spi_master    |28     |44     |5      |
++----------------------------------------------------+

@@ -1,0 +1,26 @@
+!!  src\color_bar.v  £¨º¬Î´°þ³ýµÄ±àÒëÖ¸Áî: endif, ifdef, include£©
+**  src\hdmi\enc_file\video_tpg_1024768.enc.v
+**  src\hdmi\enc_file\video_tpg_1080p.enc.v
+**  src\hdmi\enc_file\video_tpg_12801024p.enc.v
+**  src\hdmi\enc_file\video_tpg_1280800.enc.v
+**  src\hdmi\enc_file\video_tpg_16801050p.enc.v
+**  src\hdmi\enc_file\video_tpg_800600.enc.v
+**  src\hdmi\global_def.v
+**  src\hdmi\hdmi_1_4b_transmitter_core_wrapper.enc.v
+**  src\ip_core\afifo_16_256.v
+**  src\ip_core\afifo_8i_16o_1024.v
+**  src\ip_core\afifo_8i_16o_1024_bb.v
+**  src\ip_core\afifo_8i_32o_1024.v
+**  src\ip_core\afifo_8i_32o_1024_bb.v
+**  src\ip_core\sys_pll.v
+**  src\ip_core\video_pll.v
+**  src\sdram\enc_file\global_def.v
+**  src\sdram\enc_file\sdr_as_ram.enc.v
+**  src\sdram\enc_file\sdr_init_ref.enc.v
+**  src\sdram\enc_file\sdr_wrrd.enc.v
+**  src\sdram\sdram.v
+**  src\sdram_r\sdram_cmd.v
+**  src\sdram_r\sdram_ctrl.v
+**  src\sdram_r\sdram_data.v
+**  src\sdram_r\sdram_para.v
+**  src\video_define.v
